@@ -1,0 +1,64 @@
+name: Bootstrap research reproduction
+
+on:
+  push:
+    branches: [research/bootstrap-phase-3-representation-evaluation]
+    paths: ['research/phase-3/**', '.github/workflows/bootstrap-research.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bootstrap-research-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  research:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Capture public research state and environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/research-evidence"
+          git archive --format=tar HEAD -- BOOTSTRAP.md ROADMAP.md RESEARCH.md AGENTS.md .agents/skills/beads/SKILL.md research > "$RUNNER_TEMP/research-evidence/research-state.tar"
+          {
+            git rev-parse HEAD
+            python3 --version
+            git --version
+            python3 -c 'import sqlite3; print("sqlite", sqlite3.sqlite_version)'
+          } > "$RUNNER_TEMP/research-evidence/environment.txt"
+      - name: Independently reproduce Phase 2 outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="$RUNNER_TEMP/research-evidence"
+          p=research/phase-2
+          python3 "$p/tools/validate_event_fluent_fixture.py" "$p/fixtures/amnesia-notes-event-fluent.json" --output "$d/amnesia-notes-event-fluent-validation.json"
+          python3 "$p/tools/validate_portfolio_prose_fixture.py" "$p/fixtures/portfolio-about-event-fluent.json" --output "$d/portfolio-about-event-fluent-validation.json"
+          python3 "$p/tools/validate_paired_domain.py" "$p/fixtures/paired-domain-proof.json" "$d/amnesia-notes-event-fluent-validation.json" "$d/portfolio-about-event-fluent-validation.json" --output "$d/paired-domain-validation.json"
+          for f in amnesia-notes-event-fluent-validation.json portfolio-about-event-fluent-validation.json paired-domain-validation.json; do
+            cmp "$p/results/$f" "$d/$f"
+          done
+      - name: Run Phase 3 experiments when present
+        shell: bash
+        run: |
+          set -euo pipefail
+          if test -f research/phase-3/tools/run_experiments.py; then
+            python3 research/phase-3/tools/run_experiments.py --output "$RUNNER_TEMP/research-evidence/phase-3-results.json"
+          else
+            printf '%s\n' 'Phase 3 runner not yet committed; this run establishes transport and Phase 2 reproduction only.' > "$RUNNER_TEMP/research-evidence/phase-3-not-executed.txt"
+          fi
+      - name: Retain bounded public research evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: bootstrap-research-${{ github.sha }}
+          path: ${{ runner.temp }}/research-evidence/
+          retention-days: 3
+          if-no-files-found: error
