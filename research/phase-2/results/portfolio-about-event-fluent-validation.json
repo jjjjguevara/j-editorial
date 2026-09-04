@@ -1,0 +1,29 @@
+{
+  "actor_count": 5,
+  "canonical_research_sha256": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+  "canonicalization_note": "Python sorted-key compact JSON for this experiment; not an RFC 8785/JCS claim.",
+  "checks": {
+    "P-01": "passed",
+    "P-02": "passed",
+    "P-03": "passed",
+    "P-04": "passed",
+    "P-05": "passed",
+    "P-06": "passed",
+    "P-07": "passed",
+    "P-08": "passed",
+    "P-09": "passed",
+    "P-10": "passed",
+    "P-11": "passed",
+    "P-12": "passed"
+  },
+  "finding_count": 5,
+  "fixture_id": "je-fx-portfolio-about-001",
+  "fixture_version": "0.1.0",
+  "fluent_count": 6,
+  "input_file_sha256": "9c24cf03065f69aacaed4375c9830feeec0a78c8277e3a07c0b8f299147b4eb2",
+  "projection_count": 5,
+  "scope_note": "Internal representation-fixture consistency only; not prose quality, biographical verification, live-site parity, grader calibration, production architecture, corpus, or dataset validation.",
+  "source_binding_count": 9,
+  "status": "pass",
+  "transaction_count": 22
+}

@@ -1,0 +1,149 @@
+{
+  "pair_id": "je-pair-technical-reference-general-prose-001",
+  "version": "0.1.0",
+  "classification": {
+    "purpose": "cross-domain-representation-co-gate",
+    "status": "research-only",
+    "training_eligibility": "prohibited",
+    "benchmark_corpus_status": "not-a-corpus",
+    "architecture_selection": "none",
+    "source_mutation": "none"
+  },
+  "technical_slice": {
+    "domain": "API technical reference",
+    "fixture_id": "je-fx-amnesia-notes-001",
+    "fixture_version": "0.2.0",
+    "input_file_sha256": "cba015d96b8ca0331c48dbfb96a2d29408883167ca4bb4af7b84f3cffdffff82",
+    "canonical_research_sha256": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+    "result_status": "pass",
+    "characteristics": [
+      "deterministic source-contract contradiction",
+      "three remedy branches with authoritative adjudication",
+      "external product change can reopen an unchanged document",
+      "runtime and human task evidence remain absent"
+    ]
+  },
+  "prose_slice": {
+    "domain": "public professional biography",
+    "fixture_id": "je-fx-portfolio-about-001",
+    "fixture_version": "0.1.0",
+    "input_file_sha256": "9c24cf03065f69aacaed4375c9830feeec0a78c8277e3a07c0b8f299147b4eb2",
+    "canonical_research_sha256": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+    "result_status": "pass",
+    "characteristics": [
+      "rhetorical and structural findings without a unique gold answer",
+      "qualified owner-attested and internally consistent evidence",
+      "three potentially acceptable remedies retained without adjudication",
+      "synthetic reviewer disagreement remains unresolved",
+      "truth/support and disclosure permission remain separate",
+      "external profile change can reopen an unchanged page"
+    ]
+  },
+  "cross_domain_obligations": [
+    {
+      "id": "C-01",
+      "claim": "Both slices preserve exact checkpoint identity, causal transactions, fluents, and versioned derived projections.",
+      "technical_evidence": [
+        "E-03",
+        "E-07",
+        "E-10"
+      ],
+      "prose_evidence": [
+        "P-02",
+        "P-10",
+        "P-11"
+      ]
+    },
+    {
+      "id": "C-02",
+      "claim": "One typed vocabulary can represent deterministic reference parity and disputed prose judgment without treating them as the same grader problem.",
+      "technical_evidence": [
+        "E-01",
+        "E-04",
+        "E-08"
+      ],
+      "prose_evidence": [
+        "P-04",
+        "P-05",
+        "P-07"
+      ]
+    },
+    {
+      "id": "C-03",
+      "claim": "Historical acceptance is evidence but not a unique gold answer; multiple remedies and authority-bearing dispositions remain explicit.",
+      "technical_evidence": [
+        "E-05"
+      ],
+      "prose_evidence": [
+        "P-03",
+        "P-06",
+        "P-07"
+      ]
+    },
+    {
+      "id": "C-04",
+      "claim": "Artifact correctness/readiness may change when an external referent changes even if the artifact bytes do not.",
+      "technical_evidence": [
+        "E-06"
+      ],
+      "prose_evidence": [
+        "P-10"
+      ]
+    },
+    {
+      "id": "C-05",
+      "claim": "Norm applicability, evidence qualification, privacy, and release authority remain distinct from observations and textual change.",
+      "technical_evidence": [
+        "E-01",
+        "E-08",
+        "E-09"
+      ],
+      "prose_evidence": [
+        "P-04",
+        "P-08",
+        "P-09",
+        "P-12"
+      ]
+    },
+    {
+      "id": "C-06",
+      "claim": "The paired proof supports representation adequacy only; runtime behavior, empirical reader performance, and grader reliability remain open.",
+      "technical_evidence": [
+        "E-08"
+      ],
+      "prose_evidence": [
+        "P-07",
+        "P-12"
+      ]
+    },
+    {
+      "id": "C-07",
+      "claim": "Neither slice selects persistence, a production schema, a training corpus, or a model-training use.",
+      "technical_evidence": [
+        "technical-classification-and-stage-gate"
+      ],
+      "prose_evidence": [
+        "P-01"
+      ]
+    }
+  ],
+  "conclusions": {
+    "typed_vocabulary_generalization": "supported-with-constraints",
+    "event_fluent_checkpoint_shape": "supported-for-further-research",
+    "prose_grader_reliability": "not-established",
+    "empirical_reader_task": "not-executed",
+    "production_architecture": "not-selected",
+    "persistence_adr": "not-authorized",
+    "dataset_research": "not-authorized",
+    "bootstrap_exit": "not-passed"
+  },
+  "expected": [
+    "C-01",
+    "C-02",
+    "C-03",
+    "C-04",
+    "C-05",
+    "C-06",
+    "C-07"
+  ]
+}

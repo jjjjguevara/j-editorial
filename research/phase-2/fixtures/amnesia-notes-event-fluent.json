@@ -1,0 +1,539 @@
+{
+  "fixture_id": "je-fx-amnesia-notes-001",
+  "version": "0.2.0",
+  "classification": {
+    "purpose": "architecture-evaluation-fixture",
+    "status": "research-only",
+    "training_eligibility": "prohibited",
+    "benchmark_corpus_status": "not-a-corpus",
+    "source_mutation": "none"
+  },
+  "model": {
+    "dimensions": [
+      "material",
+      "goal",
+      "normative",
+      "epistemic",
+      "operational",
+      "authority",
+      "release",
+      "retention"
+    ],
+    "semantic_replay_can_reconstruct_source_bytes": false,
+    "storage_order_is_causal_order": false,
+    "observations_are_automatic_truth": false,
+    "projections_are_derived": true
+  },
+  "sources": [
+    {
+      "id": "docs:d0",
+      "repo": "jjjjguevara/amnesia-docs",
+      "commit": "5d8aa677793cc2b4734106bb21e6118f0cc5a2aa",
+      "path": "src/content/docs/api/reference/commands-notes.md",
+      "digest": "1cda5daf0f96cde966d18b4e9da640d1a27ca084",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "docs:capabilities:d0",
+      "repo": "jjjjguevara/amnesia-docs",
+      "commit": "5d8aa677793cc2b4734106bb21e6118f0cc5a2aa",
+      "path": "src/content/docs/api/reference/capabilities.md",
+      "digest": "e4481fb82b03e558fc4c7d7ef936fdf141c2fe76",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "product:p0",
+      "repo": "jjjjguevara/amnesia",
+      "commit": "4d0d1efec4ee4958db504cb56bcf47dfbc19b92a",
+      "path": "apps/amnesia/src/api/{types.ts,facades/notes.ts,security/capabilities.ts,api.ts}",
+      "digest": "bundle:b225ec17+1a460e0e+0182fc05+d35376b9",
+      "algorithm": "pinned-git-blob-bundle",
+      "synthetic": false
+    },
+    {
+      "id": "docs:d1-fixture",
+      "repo": "fixture://j-editorial/amnesia-notes",
+      "commit": null,
+      "path": "commands-notes.corrected-fixture.md",
+      "digest": "cac4b18e9f41bb18637c3e7f566d5fa29be8cdc20e457926b97f1531d3e88818",
+      "algorithm": "sha256",
+      "synthetic": true
+    },
+    {
+      "id": "product:p1-counterfactual",
+      "repo": "scenario://external-product",
+      "commit": null,
+      "path": "NotesCommands",
+      "digest": "c819f360824e754aebc873c0feac165ab3ee645ec5ff89cb31d13eb8176a9fd7",
+      "algorithm": "sha256",
+      "synthetic": true
+    }
+  ],
+  "actors": [
+    {
+      "id": "checker",
+      "role": "contract-observer",
+      "authority": [
+        "record-observation"
+      ]
+    },
+    {
+      "id": "maintainer",
+      "role": "product-docs-maintainer",
+      "authority": [
+        "accept",
+        "reject",
+        "waive",
+        "release"
+      ]
+    },
+    {
+      "id": "runner",
+      "role": "fixture-runner",
+      "authority": [
+        "materialize-fixture",
+        "record-validation"
+      ]
+    }
+  ],
+  "goal": {
+    "id": "goal:api-reference-v1",
+    "audience": "external Obsidian plugin developer",
+    "purpose": "Correctly identify and call the pinned notes API while understanding capability limits."
+  },
+  "obligations": [
+    "notes-signature-parity",
+    "capabilities-return-parity",
+    "honest-readiness",
+    "developer-task-clarity"
+  ],
+  "evidence": {
+    "id": "evidence:static-contract:e1",
+    "tool": "j-editorial-static-contract-observer",
+    "tool_version": "0.1.0-research",
+    "environment": "connector-pinned-source-inspection; runtime-build=false",
+    "raw_output_sha256": "902116abe61e0776f76a9c8458368bfc3ca413866696e8b2315ec21a4f87c55f",
+    "uncertainty": "static contradiction is high-confidence; intended future contract unknown",
+    "abstentions": [
+      "runtime availability",
+      "built output parity",
+      "human task success"
+    ]
+  },
+  "finding": {
+    "id": "finding:notes-signature",
+    "claim": "Documentation omits required bookId and incorrectly declares every notes method async at the pinned refs.",
+    "axes": [
+      "constructive",
+      "referential",
+      "pragmatic-governance"
+    ],
+    "roles": [
+      "assertion",
+      "evidence-bearing-finding",
+      "obligation-impact",
+      "observation-output",
+      "review-object",
+      "release-blocker"
+    ],
+    "evidence": "evidence:static-contract:e1",
+    "obligations": [
+      "notes-signature-parity",
+      "honest-readiness"
+    ],
+    "polarity": "adverse",
+    "confidence": "deterministic-high"
+  },
+  "transactions": [
+    {
+      "id": "tx:bind",
+      "type": "context-bound",
+      "parents": [],
+      "branch": "main",
+      "actor": "runner",
+      "event_time": "2026-08-01T09:00:00Z",
+      "effects": [
+        {
+          "dimension": "material",
+          "path": "docs",
+          "after": "docs:d0"
+        },
+        {
+          "dimension": "material",
+          "path": "product",
+          "after": "product:p0"
+        },
+        {
+          "dimension": "goal",
+          "path": "active",
+          "after": "goal:api-reference-v1"
+        }
+      ]
+    },
+    {
+      "id": "tx:check",
+      "type": "observation-recorded",
+      "parents": [
+        "tx:bind"
+      ],
+      "branch": "main",
+      "actor": "checker",
+      "event_time": "2026-08-01T09:01:00Z",
+      "evidence": "evidence:static-contract:e1",
+      "effects": []
+    },
+    {
+      "id": "tx:record-finding",
+      "type": "finding-transaction",
+      "parents": [
+        "tx:check"
+      ],
+      "branch": "main",
+      "actor": "checker",
+      "event_time": "2026-08-01T09:01:02Z",
+      "finding": "finding:notes-signature",
+      "effects": [
+        {
+          "dimension": "epistemic",
+          "path": "findings.notes",
+          "after": "supported-adverse"
+        },
+        {
+          "dimension": "normative",
+          "path": "notes-signature-parity",
+          "after": "unsatisfied"
+        },
+        {
+          "dimension": "operational",
+          "path": "remediation",
+          "after": "open"
+        },
+        {
+          "dimension": "authority",
+          "path": "disposition",
+          "after": "maintainer-required"
+        },
+        {
+          "dimension": "release",
+          "path": "parity",
+          "after": "unsupported"
+        }
+      ]
+    },
+    {
+      "id": "tx:propose-docs",
+      "type": "proposal",
+      "parents": [
+        "tx:record-finding"
+      ],
+      "branch": "remedy/docs",
+      "actor": "checker",
+      "event_time": "2026-08-01T09:02:00Z",
+      "proposal": "correct-documentation",
+      "effects": [
+        {
+          "dimension": "operational",
+          "path": "proposal.docs",
+          "after": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "tx:propose-product",
+      "type": "proposal",
+      "parents": [
+        "tx:record-finding"
+      ],
+      "branch": "remedy/product",
+      "actor": "checker",
+      "event_time": "2026-08-01T09:02:00Z",
+      "proposal": "change-product-surface",
+      "effects": [
+        {
+          "dimension": "operational",
+          "path": "proposal.product",
+          "after": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "tx:propose-downgrade",
+      "type": "proposal",
+      "parents": [
+        "tx:record-finding"
+      ],
+      "branch": "remedy/downgrade",
+      "actor": "checker",
+      "event_time": "2026-08-01T09:02:00Z",
+      "proposal": "downgrade-parity",
+      "effects": [
+        {
+          "dimension": "operational",
+          "path": "proposal.downgrade",
+          "after": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "tx:accept-docs",
+      "type": "decision",
+      "parents": [
+        "tx:propose-docs"
+      ],
+      "branch": "remedy/docs",
+      "actor": "maintainer",
+      "event_time": "2026-08-01T09:03:00Z",
+      "decision": "accepted",
+      "effects": [
+        {
+          "dimension": "authority",
+          "path": "proposal.docs",
+          "after": "accepted"
+        }
+      ]
+    },
+    {
+      "id": "tx:reject-product",
+      "type": "decision",
+      "parents": [
+        "tx:propose-product"
+      ],
+      "branch": "remedy/product",
+      "actor": "maintainer",
+      "event_time": "2026-08-01T09:03:00Z",
+      "decision": "rejected",
+      "effects": [
+        {
+          "dimension": "authority",
+          "path": "proposal.product",
+          "after": "rejected"
+        }
+      ]
+    },
+    {
+      "id": "tx:apply-docs",
+      "type": "operation-applied",
+      "parents": [
+        "tx:accept-docs"
+      ],
+      "branch": "remedy/docs",
+      "actor": "runner",
+      "event_time": "2026-08-01T09:03:30Z",
+      "effects": [
+        {
+          "dimension": "material",
+          "path": "docs",
+          "before": "docs:d0",
+          "after": "docs:d1-fixture"
+        },
+        {
+          "dimension": "operational",
+          "path": "proposal.docs",
+          "after": "applied"
+        }
+      ]
+    },
+    {
+      "id": "tx:verify",
+      "type": "verification-recorded",
+      "parents": [
+        "tx:apply-docs"
+      ],
+      "branch": "remedy/docs",
+      "actor": "checker",
+      "event_time": "2026-08-01T09:04:00Z",
+      "effects": [
+        {
+          "dimension": "normative",
+          "path": "notes-signature-parity",
+          "after": "satisfied-static"
+        },
+        {
+          "dimension": "epistemic",
+          "path": "finding:notes-signature",
+          "after": "resolved-at-d1-p0"
+        },
+        {
+          "dimension": "release",
+          "path": "status",
+          "after": "review"
+        }
+      ]
+    },
+    {
+      "id": "tx:adjudicate",
+      "type": "merge-adjudication",
+      "parents": [
+        "tx:verify",
+        "tx:reject-product",
+        "tx:propose-downgrade"
+      ],
+      "branch": "main",
+      "actor": "maintainer",
+      "event_time": "2026-08-01T09:05:00Z",
+      "effects": [
+        {
+          "dimension": "operational",
+          "path": "proposal.downgrade",
+          "after": "superseded"
+        },
+        {
+          "dimension": "release",
+          "path": "status",
+          "after": "review-with-residual-conditions"
+        }
+      ]
+    },
+    {
+      "id": "tx:external-change",
+      "type": "external-occurrence-observed",
+      "parents": [
+        "tx:adjudicate"
+      ],
+      "branch": "scenario/late-product-change",
+      "actor": "checker",
+      "event_time": "2026-08-10T10:00:00Z",
+      "effective_time": "2026-08-10T10:00:00Z",
+      "observed_at": "2026-08-12T14:00:00Z",
+      "recorded_at": "2026-08-12T14:00:05Z",
+      "docs_checkpoint_unchanged": true,
+      "effects": [
+        {
+          "dimension": "material",
+          "path": "product",
+          "after": "product:p1-counterfactual"
+        },
+        {
+          "dimension": "normative",
+          "path": "notes-signature-parity",
+          "after": "unsatisfied-after-external-change"
+        },
+        {
+          "dimension": "epistemic",
+          "path": "finding.stale",
+          "after": "supported-counterfactual"
+        },
+        {
+          "dimension": "operational",
+          "path": "remediation",
+          "after": "reopened"
+        },
+        {
+          "dimension": "release",
+          "path": "status",
+          "after": "reopened"
+        }
+      ]
+    },
+    {
+      "id": "tx:redact",
+      "type": "retention-operation",
+      "parents": [
+        "tx:external-change"
+      ],
+      "branch": "scenario/erasure",
+      "actor": "maintainer",
+      "event_time": "2026-08-13T09:00:00Z",
+      "effects": [
+        {
+          "dimension": "retention",
+          "path": "evidence:static-contract:e1",
+          "after": "payload-redacted"
+        }
+      ]
+    }
+  ],
+  "fluents": [
+    {
+      "id": "fluent:unsatisfied",
+      "subject": "notes-signature-parity",
+      "value": "unsatisfied",
+      "initiated_by": "tx:record-finding",
+      "terminated_by": "tx:verify"
+    },
+    {
+      "id": "fluent:satisfied-static",
+      "subject": "notes-signature-parity",
+      "value": "satisfied-static",
+      "initiated_by": "tx:verify",
+      "terminated_by": "tx:external-change"
+    },
+    {
+      "id": "fluent:release-reopened",
+      "subject": "goal:api-reference-v1",
+      "value": "reopened",
+      "initiated_by": "tx:external-change",
+      "terminated_by": null
+    }
+  ],
+  "projections": [
+    {
+      "id": "projection:gaps:v1",
+      "state_head": "tx:record-finding",
+      "projection_version": "gap/1.0",
+      "reducer_version": "reducer/1.0",
+      "output": {
+        "gaps": [
+          "notes-signature-parity"
+        ],
+        "release": "blocked"
+      }
+    },
+    {
+      "id": "projection:readiness:v1",
+      "state_head": "tx:verify",
+      "projection_version": "readiness/1.0",
+      "reducer_version": "reducer/1.0",
+      "output": {
+        "status": "review",
+        "reason": "static parity restored; runtime evidence pending"
+      }
+    },
+    {
+      "id": "projection:readiness:v2",
+      "state_head": "tx:verify",
+      "projection_version": "readiness/2.0",
+      "reducer_version": "reducer/2.0",
+      "output": {
+        "status": "blocked",
+        "reason": "runtime evidence required before parity readiness"
+      }
+    },
+    {
+      "id": "projection:gaps:v2",
+      "state_head": "tx:external-change",
+      "projection_version": "gap/2.0",
+      "reducer_version": "reducer/2.0",
+      "output": {
+        "gaps": [
+          "notes-stale-after-p1"
+        ],
+        "release": "reopened"
+      }
+    }
+  ],
+  "erasure": {
+    "id": "erasure:e1",
+    "authorized_by": "tx:redact",
+    "target": "evidence:static-contract:e1",
+    "payload_status": "redacted",
+    "identity_retained": true,
+    "digest_retained": true,
+    "exact_replay_possible": false,
+    "semantic_replay": "partial-with-declared-gap"
+  },
+  "expected": [
+    "E-01",
+    "E-02",
+    "E-03",
+    "E-04",
+    "E-05",
+    "E-06",
+    "E-07",
+    "E-08",
+    "E-09",
+    "E-10"
+  ]
+}

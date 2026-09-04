@@ -1,0 +1,1266 @@
+{
+  "fixture_id": "je-fx-portfolio-about-001",
+  "version": "0.1.0",
+  "classification": {
+    "purpose": "architecture-evaluation-fixture",
+    "status": "research-only",
+    "training_eligibility": "prohibited",
+    "benchmark_corpus_status": "not-a-corpus",
+    "source_mutation": "none",
+    "architecture_selection": "none",
+    "target_scope": "single-public-about-page",
+    "private_data_boundary": "details-already-present-on-pinned-about-page-only"
+  },
+  "model": {
+    "dimensions": [
+      "material",
+      "goal",
+      "normative",
+      "epistemic",
+      "operational",
+      "authority",
+      "release",
+      "retention"
+    ],
+    "semantic_replay_can_reconstruct_source_bytes": false,
+    "storage_order_is_causal_order": false,
+    "observations_are_automatic_truth": false,
+    "projections_are_derived": true,
+    "historical_acceptance_is_unique_gold": false,
+    "truth_implies_disclosure_permission": false,
+    "reader_observation_is_release_authority": false
+  },
+  "target": {
+    "repository": "jjjjguevara/sci-jjjjguevara",
+    "commit": "1c93b60e75ce60203295a988b8125d44e6acb6bc",
+    "path": "src/pages/about.astro",
+    "blob": "d56c560fc63569b471cc4e81a65daf52568fe754",
+    "route": "/about",
+    "evaluated_projection": "visible-text-and-semantic-heading-list-structure",
+    "excluded_surfaces": [
+      "/",
+      "/field-notes",
+      "protected-field-notes-descendants",
+      "private-career-archaeology",
+      "project-runtime-behavior"
+    ]
+  },
+  "sources": [
+    {
+      "id": "about:p0-pre-audit",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "f66fa3d1b6c7b03ece46eb2f20d9089a51f02e2a",
+      "path": "src/pages/about.astro",
+      "digest": "e11905e3db4591301c9bb17bed5a50490ba5bffb",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "about:p1-prose-audit",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "900483708d74e83c5f4acd3b308127f7fa430117",
+      "path": "src/pages/about.astro",
+      "digest": "5d3d5007a6d2af82d8526e5862e87ec9dd239b26",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "about:p2-target",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "1c93b60e75ce60203295a988b8125d44e6acb6bc",
+      "introduced_by_commit": "ddf0bcee6dc95d1deac016d8e47ee286d5c04055",
+      "path": "src/pages/about.astro",
+      "digest": "d56c560fc63569b471cc4e81a65daf52568fe754",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "brief:n0",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "1c93b60e75ce60203295a988b8125d44e6acb6bc",
+      "path": "docs/personal-site-creative/creative-brief.md",
+      "digest": "8a2ea661cedfb9124050acf56e6a0142168c9ebe",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "profile:f0",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "1c93b60e75ce60203295a988b8125d44e6acb6bc",
+      "path": "src/data/profile/canonical.yaml",
+      "digest": "486d6d4f3e686e3348bb689b0ad7297b49cc8aab",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "resume:r0",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "1c93b60e75ce60203295a988b8125d44e6acb6bc",
+      "path": "src/data/resume.ts",
+      "digest": "c226de4e03defc763278d167766ffbbdcff219bf",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "evidence-ledger:l0",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "1c93b60e75ce60203295a988b8125d44e6acb6bc",
+      "path": "docs/portfolio-remediation/evidence-ledger.yaml",
+      "digest": "8e3175310eefd452a60faca9799a30381ef4f6f2",
+      "algorithm": "git-blob-sha1",
+      "synthetic": false
+    },
+    {
+      "id": "profile:f1-counterfactual",
+      "repo": "scenario://portfolio-profile-change",
+      "commit": null,
+      "path": "professional-chronology-entry-1",
+      "digest": "70b6221cbf370cea156e6fdbebc06d271249586f5b7c41d77c58b122dd0bbcd2",
+      "algorithm": "sha256-canonical-research-json",
+      "synthetic": true,
+      "manifest": {
+        "scenario": "owner-approved-profile-fact-change",
+        "field": "professional-chronology-entry-1",
+        "before": "bound-at-profile:f0",
+        "after": "changed-counterfactual",
+        "asserts_real_world_change": false
+      }
+    },
+    {
+      "id": "proposal:private-detail-redacted",
+      "repo": "scenario://portfolio-private-disclosure",
+      "commit": null,
+      "path": "about-page-proposal",
+      "digest": "2c65df907e8dffb568d5e4de3fac207a9b97f552679c9f4c40e049181a9f84d7",
+      "algorithm": "sha256-canonical-research-json",
+      "synthetic": true,
+      "manifest": {
+        "proposal": "add-private-biographical-detail",
+        "payload": "[REDACTED_FIXTURE_PLACEHOLDER]",
+        "truth_status": "unknown",
+        "disclosure_permission": "not-granted",
+        "asserts_real_personal_detail": false
+      }
+    }
+  ],
+  "actors": [
+    {
+      "id": "owner",
+      "role": "portfolio-owner-editor",
+      "authority": [
+        "observe",
+        "propose",
+        "accept",
+        "reject",
+        "waive",
+        "authorize-disclosure",
+        "release"
+      ],
+      "synthetic": false
+    },
+    {
+      "id": "researcher",
+      "role": "research-fixture-author",
+      "authority": [
+        "inspect-pinned-source",
+        "record-observation",
+        "propose",
+        "materialize-fixture"
+      ],
+      "synthetic": false
+    },
+    {
+      "id": "deterministic-checker",
+      "role": "repository-rule-observer",
+      "authority": [
+        "record-observation"
+      ],
+      "synthetic": false
+    },
+    {
+      "id": "review-scenario-a",
+      "role": "synthetic-professional-reader",
+      "authority": [
+        "record-evaluative-observation"
+      ],
+      "synthetic": true
+    },
+    {
+      "id": "review-scenario-b",
+      "role": "synthetic-professional-reader",
+      "authority": [
+        "record-evaluative-observation"
+      ],
+      "synthetic": true
+    }
+  ],
+  "goal": {
+    "id": "goal:portfolio-about-v1",
+    "audience": {
+      "primary": [
+        "recruiters and hiring decision-makers scanning professional facts",
+        "technically informed readers evaluating the work and its author"
+      ],
+      "secondary": [
+        "prospective collaborators or clients seeking concise working context"
+      ]
+    },
+    "purpose": "Enable a professional reader to understand Josué Guevara's chronology, current technical/editorial practice, education, and working context accurately and efficiently.",
+    "hard_requirements": [
+      "chronology-accuracy",
+      "canonical-record-consistency",
+      "title-non-inflation",
+      "privacy-minimization",
+      "project-prose-directness",
+      "semantic-heading-structure"
+    ],
+    "desirable_non_blocking": [
+      "audience-scanability",
+      "working-context-sufficiency"
+    ],
+    "non_goals": [
+      "score employability",
+      "verify private employment or academic records",
+      "optimize keyword density or conversion",
+      "evaluate protected Field Notes",
+      "evaluate product runtime behavior"
+    ],
+    "review_authority": "owner"
+  },
+  "norms": [
+    {
+      "id": "norm:portfolio-creative-brief",
+      "source": "brief:n0",
+      "scope": "jjjjguevara-portfolio-only",
+      "version_binding": "git-blob:8a2ea661cedfb9124050acf56e6a0142168c9ebe",
+      "non_universal": true,
+      "exception_authority": "owner"
+    },
+    {
+      "id": "norm:internal-fact-agreement",
+      "sources": [
+        "profile:f0",
+        "resume:r0"
+      ],
+      "scope": "pinned-portfolio-representations",
+      "non_universal": false,
+      "independent_verification_required": false
+    },
+    {
+      "id": "norm:public-biography-data-minimization",
+      "scope": "public-about-page",
+      "non_universal": false,
+      "truth_implies_permission": false,
+      "exception_authority": "owner"
+    }
+  ],
+  "obligations": [
+    {
+      "id": "chronology-accuracy",
+      "blocking": true,
+      "grader": "deterministic-plus-owner"
+    },
+    {
+      "id": "canonical-record-consistency",
+      "blocking": true,
+      "grader": "deterministic"
+    },
+    {
+      "id": "title-non-inflation",
+      "blocking": true,
+      "grader": "deterministic-plus-owner"
+    },
+    {
+      "id": "privacy-minimization",
+      "blocking": true,
+      "grader": "policy-plus-owner"
+    },
+    {
+      "id": "project-prose-directness",
+      "blocking": true,
+      "grader": "rules-plus-human-context"
+    },
+    {
+      "id": "semantic-heading-structure",
+      "blocking": true,
+      "grader": "parser-plus-accessibility"
+    },
+    {
+      "id": "audience-scanability",
+      "blocking": false,
+      "grader": "reader-task"
+    },
+    {
+      "id": "working-context-sufficiency",
+      "blocking": false,
+      "grader": "human-review"
+    }
+  ],
+  "evidence_levels": {
+    "source_state": "established-at-pinned-blobs",
+    "internal_consistency": "established-at-pinned-representations",
+    "independent_substantiation": "not-established",
+    "rule": "internal agreement must not be promoted to independent verification"
+  },
+  "evidence": [
+    {
+      "id": "evidence:pinned-source:e0",
+      "method": "connector-pinned-source-and-history-inspection",
+      "tool": "GitHub connector",
+      "tool_version": "runtime-managed",
+      "environment": "read-only repository inspection",
+      "raw_output_sha256": "d6baf29b33b7a3256b8a68c05b63c3198caeb1502b59d788ec8427f4b5166bc5",
+      "uncertainty": "source and commit identities are pinned; built-output and live-route equivalence were not tested",
+      "abstentions": [
+        "independent biography verification",
+        "production response verification",
+        "empirical reader task"
+      ]
+    },
+    {
+      "id": "evidence:prose-guard:e1",
+      "method": "repository-rule-source-inspection",
+      "tool": "scripts/personal-site-creative/verify-visible-prose.mjs",
+      "tool_version": "git-blob:3610e83ebe799f4d41ba5e9541e55fbdab21cb97",
+      "environment": "not re-executed in this connector-only run",
+      "raw_output_sha256": "adbe457312a05e0bec1c2f6c8696d941216ad929520dd57094f19faa156b673e",
+      "uncertainty": "regex rules do not establish clarity, truth, audience fit, or unique optimal wording",
+      "abstentions": [
+        "runtime execution",
+        "human-context adjudication"
+      ]
+    },
+    {
+      "id": "evidence:fact-guard:e2",
+      "method": "repository-rule-source-inspection",
+      "tool": "scripts/portfolio-remediation/verify-facts.mjs",
+      "tool_version": "git-blob:efb5cfc7b149763f64376416ab03552a64d4a426",
+      "environment": "not re-executed in this connector-only run",
+      "raw_output_sha256": "a5f68558cfcfb25de511444b995f6f06bcc8a4575fe1dc490fcc3472032f29c7",
+      "uncertainty": "presence and internal agreement do not prove documentary authenticity",
+      "abstentions": [
+        "independent evidence verification"
+      ]
+    },
+    {
+      "id": "evidence:owner-profile:e3",
+      "method": "owner-approved-repository-record",
+      "tool": "profile-and-resume-binding",
+      "tool_version": "profile:f0+resume:r0+evidence-ledger:l0",
+      "environment": "pinned repository representations",
+      "raw_output_sha256": "98ea7b05c046500e11e9b3014d870e7d10fb132849bae2e5fd8cffd73897155a",
+      "uncertainty": "owner attestation and internal consistency are not independent substantiation",
+      "abstentions": [
+        "external employment verification",
+        "external education verification"
+      ]
+    },
+    {
+      "id": "evidence:review-a:e4",
+      "method": "synthetic-disagreement-scenario",
+      "tool": "fixture-review-scenario-a",
+      "tool_version": "0.1.0",
+      "environment": "research fixture only",
+      "raw_output_sha256": "85c3db0610834e9d1464c59bd2a179553b70951c8dcbccc1e3babd9acea0ccc1",
+      "uncertainty": "not an empirical reader observation",
+      "abstentions": [
+        "release decision"
+      ]
+    },
+    {
+      "id": "evidence:review-b:e5",
+      "method": "synthetic-disagreement-scenario",
+      "tool": "fixture-review-scenario-b",
+      "tool_version": "0.1.0",
+      "environment": "research fixture only",
+      "raw_output_sha256": "2255c5558ae1cf55aa9a873a5893de194664de1facdacf88c67d81a59bea560e",
+      "uncertainty": "not an empirical reader observation",
+      "abstentions": [
+        "release decision"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "finding:rhetoric-pre-audit",
+      "claim": "The pre-audit page used vague career positioning, self-interpretive framing, and project-disfavored rhetorical contrasts.",
+      "axes": [
+        "constructive",
+        "referential",
+        "pragmatic-governance"
+      ],
+      "roles": [
+        "assertion",
+        "evidence-bearing-finding",
+        "norm-impact",
+        "observation-output",
+        "review-object",
+        "release-impact"
+      ],
+      "evidence": [
+        "evidence:pinned-source:e0",
+        "evidence:prose-guard:e1"
+      ],
+      "obligations": [
+        "project-prose-directness",
+        "chronology-accuracy"
+      ],
+      "polarity": "adverse",
+      "confidence": "history-supported",
+      "disposition": "resolved-at-about:p1-prose-audit",
+      "unique_gold_answer": false
+    },
+    {
+      "id": "finding:decorative-labels",
+      "claim": "The accepted project grammar removed redundant eyebrow and section-index labels while retaining headings and biography.",
+      "axes": [
+        "constructive",
+        "referential",
+        "pragmatic-governance"
+      ],
+      "roles": [
+        "assertion",
+        "evidence-bearing-finding",
+        "norm-impact",
+        "review-object",
+        "operation-rationale"
+      ],
+      "evidence": [
+        "evidence:pinned-source:e0"
+      ],
+      "obligations": [
+        "semantic-heading-structure"
+      ],
+      "polarity": "project-specific-adverse",
+      "confidence": "history-supported",
+      "disposition": "resolved-at-about:p2-target",
+      "norm_scope": "jjjjguevara-portfolio-only",
+      "non_universal": true,
+      "unique_gold_answer": false
+    },
+    {
+      "id": "finding:working-context-sufficiency",
+      "claim": "The current page orients readers to working context but may not demonstrate collaboration through a concrete decision episode.",
+      "axes": [
+        "constructive",
+        "referential",
+        "pragmatic-governance"
+      ],
+      "roles": [
+        "assertion",
+        "evidence-bearing-finding",
+        "obligation-impact",
+        "observation-output",
+        "review-object",
+        "nonblocking-release-condition"
+      ],
+      "evidence": [
+        "evidence:pinned-source:e0",
+        "evidence:review-a:e4",
+        "evidence:review-b:e5"
+      ],
+      "obligations": [
+        "audience-scanability",
+        "working-context-sufficiency"
+      ],
+      "polarity": "disputed",
+      "confidence": "human-judgment-required",
+      "disposition": "unresolved",
+      "blocking_under_goal_v1": false,
+      "unique_gold_answer": false
+    },
+    {
+      "id": "finding:verification-boundary",
+      "claim": "The pinned professional facts are owner-attested and internally consistent; independent substantiation was not established.",
+      "axes": [
+        "referential",
+        "pragmatic-governance"
+      ],
+      "roles": [
+        "evidence-boundary",
+        "observation-output",
+        "review-object",
+        "non-gap-condition"
+      ],
+      "evidence": [
+        "evidence:owner-profile:e3",
+        "evidence:fact-guard:e2"
+      ],
+      "obligations": [
+        "canonical-record-consistency"
+      ],
+      "polarity": "qualified-positive",
+      "confidence": "bounded",
+      "disposition": "retained-as-qualification",
+      "creates_gap_under_goal_v1": false
+    },
+    {
+      "id": "finding:profile-stale-counterfactual",
+      "claim": "A later authorized profile change would make the unchanged About page stale under the internal-consistency obligation.",
+      "axes": [
+        "constructive",
+        "referential",
+        "pragmatic-governance"
+      ],
+      "roles": [
+        "counterfactual-finding",
+        "obligation-impact",
+        "review-object",
+        "release-blocker",
+        "reopen-trigger"
+      ],
+      "evidence": [
+        "profile:f1-counterfactual"
+      ],
+      "obligations": [
+        "canonical-record-consistency",
+        "chronology-accuracy"
+      ],
+      "polarity": "adverse-counterfactual",
+      "confidence": "deterministic-scenario",
+      "disposition": "open-in-counterfactual-branch",
+      "synthetic": true
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx:bind-scope",
+      "type": "context-bound",
+      "parents": [],
+      "branch": "history/main",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:00Z",
+      "effects": [
+        {
+          "dimension": "material",
+          "path": "about",
+          "after": "about:p0-pre-audit"
+        },
+        {
+          "dimension": "material",
+          "path": "profile",
+          "after": "profile:f0"
+        },
+        {
+          "dimension": "material",
+          "path": "resume",
+          "after": "resume:r0"
+        },
+        {
+          "dimension": "goal",
+          "path": "active",
+          "after": "goal:portfolio-about-v1"
+        },
+        {
+          "dimension": "normative",
+          "path": "active",
+          "after": "norm:portfolio-creative-brief"
+        }
+      ]
+    },
+    {
+      "id": "tx:observe-pre-audit",
+      "type": "observation-recorded",
+      "parents": [
+        "tx:bind-scope"
+      ],
+      "branch": "history/main",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:01Z",
+      "evidence": "evidence:pinned-source:e0",
+      "effects": []
+    },
+    {
+      "id": "tx:record-rhetoric-finding",
+      "type": "finding-transaction",
+      "parents": [
+        "tx:observe-pre-audit"
+      ],
+      "branch": "history/main",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:02Z",
+      "finding": "finding:rhetoric-pre-audit",
+      "effects": [
+        {
+          "dimension": "epistemic",
+          "path": "finding.rhetoric",
+          "after": "supported-adverse"
+        },
+        {
+          "dimension": "normative",
+          "path": "project-prose-directness",
+          "after": "unsatisfied"
+        },
+        {
+          "dimension": "operational",
+          "path": "rhetoric-remediation",
+          "after": "historically-open"
+        },
+        {
+          "dimension": "authority",
+          "path": "rhetoric-disposition",
+          "after": "owner-required"
+        },
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "not-ready-under-bound-norm"
+        }
+      ]
+    },
+    {
+      "id": "tx:observe-rewrite-acceptance",
+      "type": "historical-decision-observed",
+      "parents": [
+        "tx:record-rhetoric-finding"
+      ],
+      "branch": "history/main",
+      "actor": "owner",
+      "event_time": "2026-09-04T10:10:03Z",
+      "source_commit": "900483708d74e83c5f4acd3b308127f7fa430117",
+      "decision": "accepted-into-owner-controlled-history",
+      "unique_gold_answer": false,
+      "effects": [
+        {
+          "dimension": "authority",
+          "path": "rhetoric-rewrite",
+          "after": "historically-accepted"
+        }
+      ]
+    },
+    {
+      "id": "tx:apply-rhetoric-rewrite",
+      "type": "operation-applied",
+      "parents": [
+        "tx:observe-rewrite-acceptance"
+      ],
+      "branch": "history/main",
+      "actor": "owner",
+      "event_time": "2026-09-04T10:10:04Z",
+      "operation_family": "semantic-rhetorical-rewrite",
+      "source_commit": "900483708d74e83c5f4acd3b308127f7fa430117",
+      "effects": [
+        {
+          "dimension": "material",
+          "path": "about",
+          "before": "about:p0-pre-audit",
+          "after": "about:p1-prose-audit"
+        },
+        {
+          "dimension": "operational",
+          "path": "rhetoric-remediation",
+          "after": "applied"
+        }
+      ]
+    },
+    {
+      "id": "tx:verify-prose-audit",
+      "type": "verification-recorded",
+      "parents": [
+        "tx:apply-rhetoric-rewrite"
+      ],
+      "branch": "history/main",
+      "actor": "deterministic-checker",
+      "event_time": "2026-09-04T10:10:05Z",
+      "evidence": [
+        "evidence:prose-guard:e1",
+        "evidence:fact-guard:e2"
+      ],
+      "effects": [
+        {
+          "dimension": "normative",
+          "path": "project-prose-directness",
+          "after": "satisfied-at-p1"
+        },
+        {
+          "dimension": "epistemic",
+          "path": "finding.rhetoric",
+          "after": "resolved-at-p1"
+        },
+        {
+          "dimension": "epistemic",
+          "path": "professional-facts",
+          "after": "owner-attested-internally-consistent"
+        },
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "review"
+        }
+      ]
+    },
+    {
+      "id": "tx:record-label-finding",
+      "type": "finding-transaction",
+      "parents": [
+        "tx:verify-prose-audit"
+      ],
+      "branch": "history/main",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:06Z",
+      "finding": "finding:decorative-labels",
+      "effects": [
+        {
+          "dimension": "epistemic",
+          "path": "finding.labels",
+          "after": "history-supported-project-specific"
+        },
+        {
+          "dimension": "normative",
+          "path": "semantic-heading-structure",
+          "after": "project-norm-unsatisfied"
+        },
+        {
+          "dimension": "operational",
+          "path": "label-simplification",
+          "after": "historically-open"
+        },
+        {
+          "dimension": "authority",
+          "path": "label-disposition",
+          "after": "owner-required"
+        },
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "nonblocking-review"
+        }
+      ]
+    },
+    {
+      "id": "tx:observe-label-acceptance",
+      "type": "historical-decision-observed",
+      "parents": [
+        "tx:record-label-finding"
+      ],
+      "branch": "history/main",
+      "actor": "owner",
+      "event_time": "2026-09-04T10:10:07Z",
+      "source_commit": "ddf0bcee6dc95d1deac016d8e47ee286d5c04055",
+      "decision": "accepted-into-owner-controlled-history",
+      "unique_gold_answer": false,
+      "effects": [
+        {
+          "dimension": "authority",
+          "path": "label-simplification",
+          "after": "historically-accepted"
+        }
+      ]
+    },
+    {
+      "id": "tx:apply-label-simplification",
+      "type": "operation-applied",
+      "parents": [
+        "tx:observe-label-acceptance"
+      ],
+      "branch": "history/main",
+      "actor": "owner",
+      "event_time": "2026-09-04T10:10:08Z",
+      "operation_family": "structural-presentational-simplification",
+      "source_commit": "ddf0bcee6dc95d1deac016d8e47ee286d5c04055",
+      "effects": [
+        {
+          "dimension": "material",
+          "path": "about",
+          "before": "about:p1-prose-audit",
+          "after": "about:p2-target"
+        },
+        {
+          "dimension": "operational",
+          "path": "label-simplification",
+          "after": "applied"
+        }
+      ]
+    },
+    {
+      "id": "tx:verify-current-source",
+      "type": "verification-recorded",
+      "parents": [
+        "tx:apply-label-simplification"
+      ],
+      "branch": "history/main",
+      "actor": "deterministic-checker",
+      "event_time": "2026-09-04T10:10:09Z",
+      "evidence": [
+        "evidence:pinned-source:e0",
+        "evidence:prose-guard:e1",
+        "evidence:fact-guard:e2",
+        "evidence:owner-profile:e3"
+      ],
+      "built_output_equivalence": "unknown",
+      "live_route_equivalence": "unknown",
+      "effects": [
+        {
+          "dimension": "normative",
+          "path": "semantic-heading-structure",
+          "after": "satisfied-at-p2"
+        },
+        {
+          "dimension": "normative",
+          "path": "canonical-record-consistency",
+          "after": "satisfied-internally"
+        },
+        {
+          "dimension": "epistemic",
+          "path": "finding.labels",
+          "after": "resolved-at-p2"
+        },
+        {
+          "dimension": "epistemic",
+          "path": "verification-level",
+          "after": "owner-attested-and-internally-consistent"
+        },
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "accepted-source-checkpoint"
+        }
+      ]
+    },
+    {
+      "id": "tx:record-working-context",
+      "type": "finding-transaction",
+      "parents": [
+        "tx:verify-current-source"
+      ],
+      "branch": "review/working-context",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:10Z",
+      "finding": "finding:working-context-sufficiency",
+      "effects": [
+        {
+          "dimension": "epistemic",
+          "path": "finding.working-context",
+          "after": "disputed"
+        },
+        {
+          "dimension": "normative",
+          "path": "working-context-sufficiency",
+          "after": "unresolved"
+        },
+        {
+          "dimension": "operational",
+          "path": "working-context-remedies",
+          "after": "open"
+        },
+        {
+          "dimension": "authority",
+          "path": "working-context-disposition",
+          "after": "owner-required-or-defer"
+        },
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "accepted-with-potential-nonblocker"
+        }
+      ]
+    },
+    {
+      "id": "tx:review-a",
+      "type": "evaluative-observation-recorded",
+      "parents": [
+        "tx:record-working-context"
+      ],
+      "branch": "review/working-context",
+      "actor": "review-scenario-a",
+      "event_time": "2026-09-04T10:10:11Z",
+      "evidence": "evidence:review-a:e4",
+      "recommendation": "retain-concise-summaries",
+      "empirical": false,
+      "effects": []
+    },
+    {
+      "id": "tx:review-b",
+      "type": "evaluative-observation-recorded",
+      "parents": [
+        "tx:record-working-context"
+      ],
+      "branch": "review/working-context",
+      "actor": "review-scenario-b",
+      "event_time": "2026-09-04T10:10:11Z",
+      "evidence": "evidence:review-b:e5",
+      "recommendation": "add-compact-decision-episodes",
+      "empirical": false,
+      "effects": []
+    },
+    {
+      "id": "tx:propose-retain",
+      "type": "proposal",
+      "parents": [
+        "tx:record-working-context"
+      ],
+      "branch": "proposal/retain",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:12Z",
+      "proposal": "retain-concise-summaries",
+      "exact_match_gold": false,
+      "acceptable_if": [
+        "orientation-only contract",
+        "project interiors carry proof"
+      ],
+      "effects": [
+        {
+          "dimension": "operational",
+          "path": "proposal.retain",
+          "after": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "tx:propose-episodes",
+      "type": "proposal",
+      "parents": [
+        "tx:record-working-context"
+      ],
+      "branch": "proposal/episodes",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:12Z",
+      "proposal": "add-one-or-two-compact-decision-episodes",
+      "exact_match_gold": false,
+      "acceptable_if": [
+        "privacy-safe examples exist",
+        "scanability budget passes"
+      ],
+      "effects": [
+        {
+          "dimension": "operational",
+          "path": "proposal.episodes",
+          "after": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "tx:propose-links",
+      "type": "proposal",
+      "parents": [
+        "tx:record-working-context"
+      ],
+      "branch": "proposal/links",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:12Z",
+      "proposal": "link-summaries-to-public-decision-evidence",
+      "exact_match_gold": false,
+      "acceptable_if": [
+        "linked evidence remains public",
+        "dependency remains intelligible"
+      ],
+      "effects": [
+        {
+          "dimension": "operational",
+          "path": "proposal.links",
+          "after": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "tx:defer-working-context",
+      "type": "multi-parent-adjudication",
+      "parents": [
+        "tx:review-a",
+        "tx:review-b",
+        "tx:propose-retain",
+        "tx:propose-episodes",
+        "tx:propose-links"
+      ],
+      "branch": "review/working-context",
+      "actor": "owner",
+      "event_time": "2026-09-04T10:10:13Z",
+      "decision": "deferred",
+      "reason": "retain disagreement for evaluation research; no portfolio mutation authorized",
+      "effects": [
+        {
+          "dimension": "authority",
+          "path": "working-context-disposition",
+          "after": "deferred"
+        },
+        {
+          "dimension": "normative",
+          "path": "working-context-sufficiency",
+          "after": "unresolved-nonblocking-under-goal-v1"
+        },
+        {
+          "dimension": "operational",
+          "path": "working-context-remedies",
+          "after": "retained-as-alternatives"
+        },
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "accepted-with-open-nonblocker"
+        }
+      ]
+    },
+    {
+      "id": "tx:propose-private-detail",
+      "type": "proposal",
+      "parents": [
+        "tx:verify-current-source"
+      ],
+      "branch": "proposal/private-detail",
+      "actor": "researcher",
+      "event_time": "2026-09-04T10:10:14Z",
+      "proposal": "add-private-biographical-detail",
+      "payload_source": "proposal:private-detail-redacted",
+      "truth_status": "unknown",
+      "disclosure_permission": "not-granted",
+      "audience_need": "not-established",
+      "effects": [
+        {
+          "dimension": "operational",
+          "path": "proposal.private-detail",
+          "after": "proposed"
+        },
+        {
+          "dimension": "retention",
+          "path": "proposal.private-detail.payload",
+          "after": "placeholder-only"
+        }
+      ]
+    },
+    {
+      "id": "tx:reject-private-detail",
+      "type": "decision",
+      "parents": [
+        "tx:propose-private-detail"
+      ],
+      "branch": "proposal/private-detail",
+      "actor": "owner",
+      "event_time": "2026-09-04T10:10:15Z",
+      "decision": "rejected",
+      "reason": "privacy-minimization-and-no-established-audience-need",
+      "truth_status_after": "unknown",
+      "disclosure_permission_after": "denied",
+      "effects": [
+        {
+          "dimension": "authority",
+          "path": "proposal.private-detail",
+          "after": "rejected"
+        },
+        {
+          "dimension": "normative",
+          "path": "privacy-minimization",
+          "after": "satisfied-by-rejection"
+        },
+        {
+          "dimension": "epistemic",
+          "path": "private-detail.truth",
+          "after": "unknown"
+        },
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "unaffected-by-rejected-proposal"
+        }
+      ]
+    },
+    {
+      "id": "tx:redact-private-detail",
+      "type": "retention-operation",
+      "parents": [
+        "tx:reject-private-detail"
+      ],
+      "branch": "proposal/private-detail",
+      "actor": "owner",
+      "event_time": "2026-09-04T10:10:16Z",
+      "effects": [
+        {
+          "dimension": "retention",
+          "path": "proposal.private-detail.payload",
+          "after": "redacted"
+        }
+      ]
+    },
+    {
+      "id": "tx:merge-current-review",
+      "type": "merge-adjudication",
+      "parents": [
+        "tx:defer-working-context",
+        "tx:redact-private-detail"
+      ],
+      "branch": "history/main",
+      "actor": "owner",
+      "event_time": "2026-09-04T10:10:17Z",
+      "effects": [
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "accepted-with-open-nonblocker-and-privacy-boundary"
+        }
+      ]
+    },
+    {
+      "id": "tx:external-profile-change",
+      "type": "external-occurrence-observed",
+      "parents": [
+        "tx:merge-current-review"
+      ],
+      "branch": "scenario/profile-change",
+      "actor": "deterministic-checker",
+      "event_time": "2026-09-04T10:10:18Z",
+      "effective_time": "2026-08-20T09:00:00Z",
+      "observed_at": "2026-08-21T12:00:00Z",
+      "recorded_at": "2026-09-04T10:10:18Z",
+      "scenario": true,
+      "asserts_real_world_change": false,
+      "about_checkpoint_unchanged": true,
+      "effects": [
+        {
+          "dimension": "material",
+          "path": "profile",
+          "before": "profile:f0",
+          "after": "profile:f1-counterfactual"
+        },
+        {
+          "dimension": "normative",
+          "path": "canonical-record-consistency",
+          "after": "unsatisfied-after-external-change"
+        },
+        {
+          "dimension": "epistemic",
+          "path": "finding.profile-stale",
+          "after": "supported-counterfactual"
+        },
+        {
+          "dimension": "operational",
+          "path": "profile-remediation",
+          "after": "reopened"
+        },
+        {
+          "dimension": "release",
+          "path": "source-status",
+          "after": "reopened-counterfactual"
+        }
+      ]
+    }
+  ],
+  "fluents": [
+    {
+      "id": "fluent:prose-directness-unsatisfied",
+      "subject": "project-prose-directness",
+      "value": "unsatisfied",
+      "initiated_by": "tx:record-rhetoric-finding",
+      "terminated_by": "tx:verify-prose-audit"
+    },
+    {
+      "id": "fluent:label-norm-unsatisfied",
+      "subject": "semantic-heading-structure",
+      "value": "project-norm-unsatisfied",
+      "initiated_by": "tx:record-label-finding",
+      "terminated_by": "tx:verify-current-source"
+    },
+    {
+      "id": "fluent:source-accepted",
+      "subject": "goal:portfolio-about-v1",
+      "value": "accepted-source-checkpoint",
+      "initiated_by": "tx:verify-current-source",
+      "terminated_by": "tx:external-profile-change"
+    },
+    {
+      "id": "fluent:working-context-disagreement",
+      "subject": "working-context-sufficiency",
+      "value": "unresolved-nonblocking",
+      "initiated_by": "tx:record-working-context",
+      "terminated_by": null
+    },
+    {
+      "id": "fluent:private-disclosure-denied",
+      "subject": "proposal.private-detail",
+      "value": "rejected-and-redacted",
+      "initiated_by": "tx:reject-private-detail",
+      "terminated_by": null
+    },
+    {
+      "id": "fluent:profile-stale-counterfactual",
+      "subject": "canonical-record-consistency",
+      "value": "unsatisfied-counterfactual",
+      "initiated_by": "tx:external-profile-change",
+      "terminated_by": null
+    }
+  ],
+  "projections": [
+    {
+      "id": "projection:gaps-v1-current",
+      "state_head": "tx:defer-working-context",
+      "projection_version": "gaps/1.0.0",
+      "reducer_version": "portfolio-goal-v1",
+      "derived": true,
+      "output": {
+        "blockers": [],
+        "non_blocking": [
+          "finding:working-context-sufficiency"
+        ],
+        "qualifications": [
+          "finding:verification-boundary"
+        ]
+      }
+    },
+    {
+      "id": "projection:readiness-v1-current",
+      "state_head": "tx:defer-working-context",
+      "projection_version": "readiness/1.0.0",
+      "reducer_version": "portfolio-goal-v1",
+      "derived": true,
+      "output": "accepted-source-checkpoint-with-open-nonblocker"
+    },
+    {
+      "id": "projection:readiness-v2-strict-counterfactual",
+      "state_head": "tx:defer-working-context",
+      "projection_version": "readiness/2.0.0-counterfactual",
+      "reducer_version": "portfolio-goal-v2-direct-demonstration-counterfactual",
+      "derived": true,
+      "authoritative": false,
+      "output": "review-required-working-context-treated-as-blocking"
+    },
+    {
+      "id": "projection:evidence-v1",
+      "state_head": "tx:verify-current-source",
+      "projection_version": "evidence/1.0.0",
+      "reducer_version": "evidence-levels-v1",
+      "derived": true,
+      "output": {
+        "source_state": "established",
+        "internal_consistency": "established",
+        "independent_substantiation": "not-established"
+      }
+    },
+    {
+      "id": "projection:readiness-v1-stale-counterfactual",
+      "state_head": "tx:external-profile-change",
+      "projection_version": "readiness/1.0.0",
+      "reducer_version": "portfolio-goal-v1",
+      "derived": true,
+      "output": "reopened-counterfactual"
+    }
+  ],
+  "erasure": {
+    "subject": "proposal:private-detail-redacted",
+    "operation": "tx:redact-private-detail",
+    "identity_retained": true,
+    "payload_retained": false,
+    "exact_replay_possible": false,
+    "semantic_replay": "partial: proposal identity, rejection rationale, and disclosure outcome remain; private payload does not",
+    "public_fixture_contains_real_private_detail": false
+  },
+  "limitations": [
+    "No portfolio source, branch, deployment, or production response was modified.",
+    "The source files and history were inspected, but the Astro build and live /about response were not reproduced.",
+    "No independent employment, education, identity, or biography evidence was inspected.",
+    "The two reader observations are synthetic disagreement scenarios, not empirical participants.",
+    "The fixture tests representation adequacy; it does not calibrate a human or model prose grader.",
+    "No dataset, corpus, labeling, benchmark, model training, persistence, or ADR work was authorized."
+  ],
+  "expected": [
+    "P-01",
+    "P-02",
+    "P-03",
+    "P-04",
+    "P-05",
+    "P-06",
+    "P-07",
+    "P-08",
+    "P-09",
+    "P-10",
+    "P-11",
+    "P-12"
+  ]
+}
