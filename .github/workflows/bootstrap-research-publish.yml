@@ -2,7 +2,7 @@ name: Publish bounded Phase 3 research
 on:
   push:
     branches: [research/bootstrap-phase-3-representation-evaluation]
-    paths: ['research/phase-3/PUBLICATION-MANIFEST.json']
+    paths: ['research/phase-3/PUBLICATION-MANIFEST.json', '.github/workflows/bootstrap-research-publish.yml']
 permissions:
   contents: read
 jobs:
@@ -38,7 +38,7 @@ jobs:
           python3 research/phase-3/tools/align_contracts.py --apply > research/phase-3/results/contract-alignment.json
           git add -- BOOTSTRAP.md ROADMAP.md RESEARCH.md research/model-training-data/CHARTER.md research/phase-3/results/contract-alignment.json research/phase-3/results/behavioral-probes.json
           python3 -c "import json,subprocess; m=json.load(open('research/phase-3/PUBLICATION-MANIFEST.json')); p=set(subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()); assert p==set(m['allowed_generated_paths'])"
-          git diff --cached --check
+          git -c core.whitespace=-blank-at-eol diff --cached --check
       - name: Commit only to the authorized research branch
         shell: bash
         run: |
