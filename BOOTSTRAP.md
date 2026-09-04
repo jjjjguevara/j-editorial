@@ -11,6 +11,30 @@ It is deliberately more detailed than a project brief and deliberately less fina
 
 No technical choice is accepted merely because it appears in this file. Where this document uses words such as *candidate*, *proposal*, *hypothesis*, *should*, or *current model*, the item remains subject to adversarial review unless explicitly identified as a bootstrap invariant or owner-imposed constraint.
 
+## Accepted research scope — 2026-09-04
+
+The owner's accepted directions supersede older candidate wording in this document:
+
+- D-01C: Amnesia API reference and portfolio About prose are co-gating research slices.
+- D-02R: the Editorial Construction Space is a cross-cutting analytic scaffold;
+  typed plural records are logical distinctions, not mandatory separate objects.
+- D-03: causal event transactions, time-scoped facts/fluents, exact checkpoints,
+  and versioned projections are the accepted research shape, not a storage choice.
+- D-04B: meaningful semantic operations plus checkpoints; keystroke capture is optional.
+- AMN-01: pinned product inspection and isolated tests are permitted, without source mutation.
+- D-01P: only `sci-jjjjguevara/src/pages/about.astro` at the accepted immutable revision
+  is target prose; supporting profile/brief/history records are evidence or norms.
+
+Scope authorities: [D-03 acceptance](research/phase-2/D-03-ACCEPTANCE.md),
+[D-01P acceptance](research/phase-2/D-01P-ACCEPTANCE.md), and
+[Phase 2 gates](research/phase-2/STAGE-GATE.md). PR #2 was merged at
+`0d24e78713ed7a2c04810ce9961e5c28ab3da096` following owner approval.
+
+Phase 3 tests behavioral integrity, targeting, representation alternatives and
+research protocols. It does not select production representation, persistence,
+a programming language, or an ADR. The implementation gate remains closed.
+Model-training dataset research is explicitly held for a separate session.
+
 ## 0. How to read this contract
 
 This contract distinguishes four classes of statement.
@@ -79,25 +103,35 @@ The bootstrap phase is **not** intended to:
 - make copyrighted editorial-guide content part of the repository without a licensing determination;
 - treat the first specialist agent as a general-purpose autonomous editor.
 
-## 3. Core system hypothesis
+## 3. Accepted research hypothesis
 
-The current working model is:
+The current research model is:
 
-`Goal Contract + Normative Priors + Artifact State + Gap Field + Evidence + Editorial Operations + Outcomes`
+`Goal + Norms + Exact Artifact Checkpoints + Typed Editorial Data + Evidence + Causal Transactions + Time-scoped Conditions + Versioned Projections`
 
-For an artifact state `S_t`, goal contract `G`, applicable prior set `P`, and evidence context `E`, the system should be able to derive or observe a set of editorial deficiencies, obligations, findings, or unresolved conditions:
+One datum may simultaneously participate in constructive, referential, and
+pragmatic/governance relations. These are not mutually exclusive storage layers.
 
-`GapField_t = Γ(S_t | G, P, E)`
+`decide(S, command) -> proposed/accepted transaction | rejection | abstention`
 
-An editorial action `A_t` transforms the artifact and related state:
+`evolve(S, transaction, reducer_version) -> S'`
 
-`S_(t+1) = T(S_t, A_t)`
+`project(S', goal_version, projection_version) -> findings/gaps/readiness/report`
 
-The useful historical primitive is therefore not merely a snapshot or diff, but a transition with context:
+An observation records that an evaluator produced a result; it does not by itself
+make the conclusion true. An obligation is not a finding, and an accepted proposal
+is not proof of a successful operation. A condition may hold between events.
+Exact source reconstruction requires available material checkpoints.
 
-`(G, P, E, S_t, GapField_t, A_t, Outcome_t, S_(t+1), GapField_(t+1))`
+`GapField = unresolved adverse findings or unsatisfied applicable obligations`
 
-This model is provisional. The adversarial review must specifically test whether *gap* is the correct central intermediate representation, or whether obligations, claims, findings, violations, review comments, unresolved questions, risks, and defects need distinct first-class semantics.
+Gap is a derived view under a particular goal, norm, evidence and interpretation,
+not the universal ontology root. Historical transitions still retain before/after,
+intent, evidence, authority, outcomes, rejection, failure and uncertainty.
+
+The logical shape is authorized for falsification research only. Physical event-first,
+fact-first, event–fluent and checkpoint+journal alternatives remain open. Semantic
+replay, portable encoding and storage-order independence require execution evidence.
 
 ## 4. Bootstrap invariants
 
@@ -233,11 +267,15 @@ A versioned collection of eval instances, graders, aggregation rules, slice defi
 
 The representation decision must be driven by capabilities, not convenience.
 
-### 6.1 Provisional direction: structured editorial state
+### 6.1 Research direction: authority by concern
 
-The current favored model is that the canonical application state may need a structured tree/graph with durable identities for meaningful editorial entities. Markdown or another source-text form would then be an import/export or publication projection.
+Exact material state, editorial-semantic assertions and derived projections answer
+different authority questions over one multidimensional state. They do not require
+three stores, three exclusive layers, or a structured-first canonical document.
 
-This is **not yet accepted**.
+Source-first, structured-first, and composed representations remain alternatives.
+Stable identity, source fidelity, opaque-syntax preservation, reconciliation and
+migration evidence must precede a physical representation decision.
 
 ### 6.2 Representation requirements to test
 
@@ -322,9 +360,9 @@ Candidate lifecycle states may include:
 
 The exact state machine is not accepted and may vary by vertical.
 
-### 8.2 Quality vector
+### 8.2 Heterogeneous quality observations
 
-The current direction favors multidimensional observations over a canonical scalar. Candidate dimensions include:
+The current direction preserves typed multidimensional observations. Neither a scalar nor vector arithmetic defines canonical editorial state. Candidate observable concerns include:
 
 - correctness;
 - completeness / coverage;
@@ -354,7 +392,7 @@ A simple weighted mean is not automatically appropriate because high style score
 
 ## 9. Editorial gap ontology vertical
 
-Editorial gaps are currently the most important candidate intermediate representation.
+Gap fields are derived views. Obligations, findings, evidence, decisions and continuing conditions remain distinguishable; the following gap families are classification candidates, not universal root objects.
 
 ### 9.1 Candidate gap families
 
@@ -949,6 +987,8 @@ Warning signs include:
 - improvements that do not correlate with useful product behavior.
 
 ## 17. Training-data vertical
+
+**Held:** this section reserves downstream questions. No dataset research, corpus construction, labeling, split generation, preference extraction or training is released by the Phase 2 merge or Phase 3 research.
 
 ### 17.1 Transition supervision
 

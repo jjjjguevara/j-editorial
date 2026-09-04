@@ -1,6 +1,6 @@
 # Model-Training Dataset Architecture, Engineering, and Governance — Research Charter
 
-Status: **placeholder / pre-bootstrap / research not yet authorized**  
+Status: **bootstrap-aligned placeholder / HELD / research not authorized**  
 Parent research constitution: `RESEARCH.md`  
 Controlling contract: `BOOTSTRAP.md`  
 Related progression: `ROADMAP.md`  
@@ -12,6 +12,19 @@ This document is the placeholder charter for the full model-training dataset eng
 It deliberately exists **before** the research is executed because dataset assumptions can contaminate the editorial semantic model, benchmark design, storage architecture, governance model, and eventual model-training strategy if they are allowed to emerge accidentally from implementation.
 
 It is not a completed research plan and does not select a storage system, file format, dataset registry, data-lake technology, curation stack, training framework, model family, or cloud architecture.
+
+## Bootstrap dependency alignment — 2026-09-04
+
+Terminology/dependencies only; no source collection, dataset design, experiment,
+format choice, storage choice, budget research or training is executed here.
+
+The upstream editorial research shape now distinguishes identity-bearing data,
+causal transactions, time-scoped conditions, exact checkpoints and versioned
+projections. The Amnesia/About fixtures are architecture probes, not a corpus.
+Any future program must consume reviewed editorial identity, goal/prior, history,
+rights, retention and evaluation contracts. Historical acceptance is not automatic
+training eligibility or a preferred/rejected label. This charter remains a placeholder;
+its detailed tracks below must be rescoped at the separately authorized session.
 
 ## 0. Bootstrap revision rule
 
@@ -1483,7 +1496,7 @@ This program is presently a placeholder under the repository-wide bootstrap hold
 
 Current status:
 
-**`PLACEHOLDER / PRE-BOOTSTRAP`**
+**`BOOTSTRAP-ALIGNED PLACEHOLDER / HELD`**
 
 Current controlling gate:
 

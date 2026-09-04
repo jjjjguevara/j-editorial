@@ -1,0 +1,911 @@
+{
+  "canonicalization": "Python sorted compact JSON; not RFC8785",
+  "checks_passed": 67,
+  "checks_total": 67,
+  "environment": {
+    "git": "git version 2.55.0",
+    "git_payload_bytes": 5673,
+    "native_scope": "Git/SQLite bounded mechanism probes; not a production backend bake-off",
+    "python": "3.12.3",
+    "sqlite": "3.45.1"
+  },
+  "experiment": {
+    "checks": [
+      {
+        "expected": [
+          true,
+          true
+        ],
+        "id": "M-1-baseline",
+        "observed": [
+          true,
+          true
+        ],
+        "passed": true,
+        "scope": "Both fixtures remain unchanged; guard adds causal/ref integrity."
+      },
+      {
+        "expected": [
+          true,
+          false
+        ],
+        "id": "M-1-unknown-actor",
+        "observed": [
+          true,
+          false
+        ],
+        "passed": true,
+        "scope": "Legacy acceptance is a detected blind spot, not a model-quality pass."
+      },
+      {
+        "expected": [
+          true,
+          false
+        ],
+        "id": "M-1-backwards-fluent",
+        "observed": [
+          true,
+          false
+        ],
+        "passed": true,
+        "scope": "Legacy acceptance is a detected blind spot, not a model-quality pass."
+      },
+      {
+        "expected": [
+          true,
+          false
+        ],
+        "id": "M-1-unknown-checkpoint",
+        "observed": [
+          true,
+          false
+        ],
+        "passed": true,
+        "scope": "Legacy acceptance is a detected blind spot, not a model-quality pass."
+      },
+      {
+        "expected": [
+          true,
+          false
+        ],
+        "id": "M-1-unknown-subject",
+        "observed": [
+          true,
+          false
+        ],
+        "passed": true,
+        "scope": "Legacy acceptance is a detected blind spot, not a model-quality pass."
+      },
+      {
+        "expected": [
+          true,
+          true
+        ],
+        "id": "M-2-baseline",
+        "observed": [
+          true,
+          true
+        ],
+        "passed": true,
+        "scope": "Both fixtures remain unchanged; guard adds causal/ref integrity."
+      },
+      {
+        "expected": [
+          true,
+          false
+        ],
+        "id": "M-2-unknown-actor",
+        "observed": [
+          true,
+          false
+        ],
+        "passed": true,
+        "scope": "Legacy acceptance is a detected blind spot, not a model-quality pass."
+      },
+      {
+        "expected": [
+          true,
+          false
+        ],
+        "id": "M-2-backwards-fluent",
+        "observed": [
+          true,
+          false
+        ],
+        "passed": true,
+        "scope": "Legacy acceptance is a detected blind spot, not a model-quality pass."
+      },
+      {
+        "expected": [
+          true,
+          false
+        ],
+        "id": "M-2-unknown-checkpoint",
+        "observed": [
+          true,
+          false
+        ],
+        "passed": true,
+        "scope": "Legacy acceptance is a detected blind spot, not a model-quality pass."
+      },
+      {
+        "expected": [
+          true,
+          false
+        ],
+        "id": "M-2-unknown-subject",
+        "observed": [
+          true,
+          false
+        ],
+        "passed": true,
+        "scope": "Legacy acceptance is a detected blind spot, not a model-quality pass."
+      },
+      {
+        "expected": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+        "id": "R-1-event-first-roundtrip",
+        "observed": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+        "passed": true,
+        "scope": "Exact research JSON content, not a source-byte retrieval promise."
+      },
+      {
+        "expected": true,
+        "id": "R-1-event-first-all-heads",
+        "observed": true,
+        "passed": true,
+        "scope": "Computed effect state and fluent visibility at every causal head."
+      },
+      {
+        "expected": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+        "id": "R-1-fact-first-roundtrip",
+        "observed": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+        "passed": true,
+        "scope": "Exact research JSON content, not a source-byte retrieval promise."
+      },
+      {
+        "expected": true,
+        "id": "R-1-fact-first-all-heads",
+        "observed": true,
+        "passed": true,
+        "scope": "Computed effect state and fluent visibility at every causal head."
+      },
+      {
+        "expected": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+        "id": "R-1-event-fluent-roundtrip",
+        "observed": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+        "passed": true,
+        "scope": "Exact research JSON content, not a source-byte retrieval promise."
+      },
+      {
+        "expected": true,
+        "id": "R-1-event-fluent-all-heads",
+        "observed": true,
+        "passed": true,
+        "scope": "Computed effect state and fluent visibility at every causal head."
+      },
+      {
+        "expected": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+        "id": "R-1-checkpoint-journal-roundtrip",
+        "observed": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+        "passed": true,
+        "scope": "Exact research JSON content, not a source-byte retrieval promise."
+      },
+      {
+        "expected": true,
+        "id": "R-1-checkpoint-journal-all-heads",
+        "observed": true,
+        "passed": true,
+        "scope": "Computed effect state and fluent visibility at every causal head."
+      },
+      {
+        "expected": {
+          "report_encoding": "digest-of-compared-value",
+          "sha256": "4636d0cea5b5f7a0fd25f5622741fc8a4fd0083cfb576a74c71d19018377253f"
+        },
+        "id": "R-1-storage-order",
+        "observed": {
+          "report_encoding": "digest-of-compared-value",
+          "sha256": "4636d0cea5b5f7a0fd25f5622741fc8a4fd0083cfb576a74c71d19018377253f"
+        },
+        "passed": true,
+        "scope": "Causal state is independent of array/storage ordering."
+      },
+      {
+        "expected": true,
+        "id": "R-1-fact-ablation",
+        "observed": true,
+        "passed": true,
+        "scope": "An effect-only fact export loses real observation occurrences; enriched facts do not."
+      },
+      {
+        "expected": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+        "id": "R-2-event-first-roundtrip",
+        "observed": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+        "passed": true,
+        "scope": "Exact research JSON content, not a source-byte retrieval promise."
+      },
+      {
+        "expected": true,
+        "id": "R-2-event-first-all-heads",
+        "observed": true,
+        "passed": true,
+        "scope": "Computed effect state and fluent visibility at every causal head."
+      },
+      {
+        "expected": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+        "id": "R-2-fact-first-roundtrip",
+        "observed": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+        "passed": true,
+        "scope": "Exact research JSON content, not a source-byte retrieval promise."
+      },
+      {
+        "expected": true,
+        "id": "R-2-fact-first-all-heads",
+        "observed": true,
+        "passed": true,
+        "scope": "Computed effect state and fluent visibility at every causal head."
+      },
+      {
+        "expected": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+        "id": "R-2-event-fluent-roundtrip",
+        "observed": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+        "passed": true,
+        "scope": "Exact research JSON content, not a source-byte retrieval promise."
+      },
+      {
+        "expected": true,
+        "id": "R-2-event-fluent-all-heads",
+        "observed": true,
+        "passed": true,
+        "scope": "Computed effect state and fluent visibility at every causal head."
+      },
+      {
+        "expected": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+        "id": "R-2-checkpoint-journal-roundtrip",
+        "observed": "74e0e3282596fd7ade8607c9a0ef40b82e096ad98840e157407e0c6b972f012e",
+        "passed": true,
+        "scope": "Exact research JSON content, not a source-byte retrieval promise."
+      },
+      {
+        "expected": true,
+        "id": "R-2-checkpoint-journal-all-heads",
+        "observed": true,
+        "passed": true,
+        "scope": "Computed effect state and fluent visibility at every causal head."
+      },
+      {
+        "expected": {
+          "report_encoding": "digest-of-compared-value",
+          "sha256": "22dac563b0845f6bc1fa3fd6839b2ca5cd4b83835bf29e32629b25445849f461"
+        },
+        "id": "R-2-storage-order",
+        "observed": {
+          "report_encoding": "digest-of-compared-value",
+          "sha256": "22dac563b0845f6bc1fa3fd6839b2ca5cd4b83835bf29e32629b25445849f461"
+        },
+        "passed": true,
+        "scope": "Causal state is independent of array/storage ordering."
+      },
+      {
+        "expected": true,
+        "id": "R-2-fact-ablation",
+        "observed": true,
+        "passed": true,
+        "scope": "An effect-only fact export loses real observation occurrences; enriched facts do not."
+      },
+      {
+        "expected": true,
+        "id": "C-01-concurrent-disagreement",
+        "observed": true,
+        "passed": true,
+        "scope": "No last-writer-wins pseudo-adjudication."
+      },
+      {
+        "expected": "deferred",
+        "id": "C-02-explicit-adjudication",
+        "observed": "deferred",
+        "passed": true,
+        "scope": "Later causal decision overrides both prior dispositions."
+      },
+      {
+        "expected": "accept",
+        "id": "C-03-branch-isolation",
+        "observed": "accept",
+        "passed": true,
+        "scope": "Sibling b is absent at head a."
+      },
+      {
+        "expected": [
+          "not-known",
+          "stale"
+        ],
+        "id": "C-04-bitemporal-cut",
+        "observed": [
+          "not-known",
+          "stale"
+        ],
+        "passed": true,
+        "scope": "Late knowledge does not rewrite what was then known."
+      },
+      {
+        "expected": "740346928da8215f53d1d93102d5734f943f9c9706f9f2a332375fdfd65886a8",
+        "id": "T-about-p0-integrity",
+        "observed": "740346928da8215f53d1d93102d5734f943f9c9706f9f2a332375fdfd65886a8",
+        "passed": true,
+        "scope": "Verifies committed fragment bytes, not unavailable full source."
+      },
+      {
+        "expected": "b2931426607154d086ffbd67b26460e2f35802e6764d10c66c9b3eb4e8b577a2",
+        "id": "T-about-p1-integrity",
+        "observed": "b2931426607154d086ffbd67b26460e2f35802e6764d10c66c9b3eb4e8b577a2",
+        "passed": true,
+        "scope": "Verifies committed fragment bytes, not unavailable full source."
+      },
+      {
+        "expected": "2eba829474897726e7382e2089a35df771e7f3a20b7b2d6f0eaac75661944507",
+        "id": "T-about-p2-integrity",
+        "observed": "2eba829474897726e7382e2089a35df771e7f3a20b7b2d6f0eaac75661944507",
+        "passed": true,
+        "scope": "Verifies committed fragment bytes, not unavailable full source."
+      },
+      {
+        "expected": "e37b4c76f3f3b1eb89a119aebff2fcaf5296e6d05265e09645fec5e2ad719f60",
+        "id": "T-notes-d0-integrity",
+        "observed": "e37b4c76f3f3b1eb89a119aebff2fcaf5296e6d05265e09645fec5e2ad719f60",
+        "passed": true,
+        "scope": "Verifies committed fragment bytes, not unavailable full source."
+      },
+      {
+        "expected": false,
+        "id": "T-real-label-removal-position",
+        "observed": false,
+        "passed": true,
+        "scope": "Historical structure change invalidates the old raw-source offset."
+      },
+      {
+        "expected": "resolved",
+        "id": "T-real-label-removal-quote",
+        "observed": "resolved",
+        "passed": true,
+        "scope": "Same literal paragraph moves after an actual historical label removal."
+      },
+      {
+        "expected": [
+          "resolved",
+          "unresolved"
+        ],
+        "id": "T-real-rewrite",
+        "observed": [
+          "resolved",
+          "unresolved"
+        ],
+        "passed": true,
+        "scope": "Rewrite requires explicit correspondence; missing text is not proof of deletion."
+      },
+      {
+        "expected": "resolved",
+        "id": "T-prose-insert-before",
+        "observed": "resolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "resolved",
+        "id": "T-prose-move",
+        "observed": "resolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "ambiguous",
+        "id": "T-prose-duplicate",
+        "observed": "ambiguous",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "unresolved",
+        "id": "T-prose-delete",
+        "observed": "unresolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "unresolved",
+        "id": "T-prose-rewrite",
+        "observed": "unresolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "unresolved",
+        "id": "T-prose-split",
+        "observed": "unresolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "resolved",
+        "id": "T-prose-context",
+        "observed": "resolved",
+        "passed": true,
+        "scope": "Bounded context disambiguates this constructed duplicate only."
+      },
+      {
+        "expected": "ambiguous",
+        "id": "T-prose-indistinguishable-context",
+        "observed": "ambiguous",
+        "passed": true,
+        "scope": "No automatic tie-break when full context duplicates."
+      },
+      {
+        "expected": "resolved",
+        "id": "T-reference-insert-before",
+        "observed": "resolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "resolved",
+        "id": "T-reference-move",
+        "observed": "resolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "ambiguous",
+        "id": "T-reference-duplicate",
+        "observed": "ambiguous",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "unresolved",
+        "id": "T-reference-delete",
+        "observed": "unresolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "unresolved",
+        "id": "T-reference-rewrite",
+        "observed": "unresolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "unresolved",
+        "id": "T-reference-split",
+        "observed": "unresolved",
+        "passed": true,
+        "scope": "Controlled fixture-only mutation; not a historical edit or semantic truth judgment."
+      },
+      {
+        "expected": "resolved",
+        "id": "T-reference-context",
+        "observed": "resolved",
+        "passed": true,
+        "scope": "Bounded context disambiguates this constructed duplicate only."
+      },
+      {
+        "expected": "ambiguous",
+        "id": "T-reference-indistinguishable-context",
+        "observed": "ambiguous",
+        "passed": true,
+        "scope": "No automatic tie-break when full context duplicates."
+      },
+      {
+        "expected": {
+          "report_encoding": "digest-of-compared-value",
+          "sha256": "46a58d2893b950193eed2df78015fa23dd8f04793fa117fbfc9a5de41ce065cb"
+        },
+        "id": "T-opaque-inert",
+        "observed": {
+          "report_encoding": "digest-of-compared-value",
+          "sha256": "46a58d2893b950193eed2df78015fa23dd8f04793fa117fbfc9a5de41ce065cb"
+        },
+        "passed": true,
+        "scope": "Opaque source roundtrip only; no LLM prompt-injection resistance claim."
+      },
+      {
+        "expected": true,
+        "id": "N-git-exact-bytes",
+        "observed": true,
+        "passed": true,
+        "scope": "Git object fidelity for bounded source-fragment manifest."
+      },
+      {
+        "expected": true,
+        "id": "N-git-stale-write",
+        "observed": true,
+        "passed": true,
+        "scope": "Single-ref compare-and-swap rejects stale writer."
+      },
+      {
+        "expected": true,
+        "id": "N-git-history-retention",
+        "observed": true,
+        "passed": true,
+        "scope": "Changing current ref does not erase prior content; privacy deletion remains unsolved."
+      },
+      {
+        "expected": [
+          17,
+          [
+            0,
+            0
+          ]
+        ],
+        "id": "N-sqlite-interrupted-transaction",
+        "observed": [
+          17,
+          [
+            0,
+            0
+          ]
+        ],
+        "passed": true,
+        "scope": "Process exit before commit; not OS crash, power-loss, or durable hardware testing."
+      },
+      {
+        "expected": [
+          1,
+          1
+        ],
+        "id": "N-sqlite-committed-transaction",
+        "observed": [
+          1,
+          1
+        ],
+        "passed": true,
+        "scope": "Both rows commit in one local database transaction."
+      },
+      {
+        "expected": "9a1b84d3eb735c4ab665f4d3cbd34f6e4e5f16f3c163213c3c65556a0a8d985d",
+        "id": "N-sqlite-neutral-exit",
+        "observed": "9a1b84d3eb735c4ab665f4d3cbd34f6e4e5f16f3c163213c3c65556a0a8d985d",
+        "passed": true,
+        "scope": "Independent JSON export/import of test rows."
+      },
+      {
+        "expected": [
+          0,
+          true
+        ],
+        "id": "N-logical-delete-not-erasure",
+        "observed": [
+          0,
+          true
+        ],
+        "passed": true,
+        "scope": "Sentinel scan of this SQLite file; SQL invisibility does not establish erasure."
+      },
+      {
+        "expected": false,
+        "id": "N-vacuum-sentinel-scan",
+        "observed": false,
+        "passed": true,
+        "scope": "Current file only; backups, snapshots, disk remnants and replicas not covered."
+      },
+      {
+        "expected": false,
+        "id": "N-tamper-detection",
+        "observed": false,
+        "passed": true,
+        "scope": "Integrity failure is reported, not silently imported."
+      }
+    ],
+    "inputs": {
+      "research/phase-2/fixtures/amnesia-notes-event-fluent.json": "cba015d96b8ca0331c48dbfb96a2d29408883167ca4bb4af7b84f3cffdffff82",
+      "research/phase-2/fixtures/portfolio-about-event-fluent.json": "9c24cf03065f69aacaed4375c9830feeec0a78c8277e3a07c0b8f299147b4eb2",
+      "research/phase-3/fixtures/target-fragments.json": "d17b1c1b5ea94ec4761cd7fa18d8baa60453b14e2f0b4defda948a255e700182"
+    },
+    "legacy_validator_mutations": [
+      {
+        "defect": "unknown-actor",
+        "fixture": "je-fx-amnesia-notes-001",
+        "new_accepts": false,
+        "old_accepts": true
+      },
+      {
+        "defect": "backwards-fluent",
+        "fixture": "je-fx-amnesia-notes-001",
+        "new_accepts": false,
+        "old_accepts": true
+      },
+      {
+        "defect": "unknown-checkpoint",
+        "fixture": "je-fx-amnesia-notes-001",
+        "new_accepts": false,
+        "old_accepts": true
+      },
+      {
+        "defect": "unknown-subject",
+        "fixture": "je-fx-amnesia-notes-001",
+        "new_accepts": false,
+        "old_accepts": true
+      },
+      {
+        "defect": "unknown-actor",
+        "fixture": "je-fx-portfolio-about-001",
+        "new_accepts": false,
+        "old_accepts": true
+      },
+      {
+        "defect": "backwards-fluent",
+        "fixture": "je-fx-portfolio-about-001",
+        "new_accepts": false,
+        "old_accepts": true
+      },
+      {
+        "defect": "unknown-checkpoint",
+        "fixture": "je-fx-portfolio-about-001",
+        "new_accepts": false,
+        "old_accepts": true
+      },
+      {
+        "defect": "unknown-subject",
+        "fixture": "je-fx-portfolio-about-001",
+        "new_accepts": false,
+        "old_accepts": true
+      }
+    ],
+    "representation_measurements": [
+      {
+        "encoded_bytes": 9530,
+        "fixture": "je-fx-amnesia-notes-001",
+        "heads": 13,
+        "profile": "event-first"
+      },
+      {
+        "encoded_bytes": 10761,
+        "fixture": "je-fx-amnesia-notes-001",
+        "heads": 13,
+        "profile": "fact-first"
+      },
+      {
+        "encoded_bytes": 17083,
+        "fixture": "je-fx-amnesia-notes-001",
+        "heads": 13,
+        "profile": "event-fluent"
+      },
+      {
+        "encoded_bytes": 9544,
+        "fixture": "je-fx-amnesia-notes-001",
+        "heads": 13,
+        "profile": "checkpoint-journal"
+      },
+      {
+        "effect_only_export_loses": [
+          "tx:check"
+        ],
+        "fixture": "je-fx-amnesia-notes-001",
+        "material_only_export_loses": [
+          "tx:check",
+          "tx:record-finding",
+          "tx:propose-docs",
+          "tx:propose-product",
+          "tx:propose-downgrade",
+          "tx:accept-docs",
+          "tx:reject-product",
+          "tx:verify",
+          "tx:adjudicate",
+          "tx:redact"
+        ]
+      },
+      {
+        "encoded_bytes": 27784,
+        "fixture": "je-fx-portfolio-about-001",
+        "heads": 22,
+        "profile": "event-first"
+      },
+      {
+        "encoded_bytes": 30913,
+        "fixture": "je-fx-portfolio-about-001",
+        "heads": 22,
+        "profile": "fact-first"
+      },
+      {
+        "encoded_bytes": 57164,
+        "fixture": "je-fx-portfolio-about-001",
+        "heads": 22,
+        "profile": "event-fluent"
+      },
+      {
+        "encoded_bytes": 27798,
+        "fixture": "je-fx-portfolio-about-001",
+        "heads": 22,
+        "profile": "checkpoint-journal"
+      },
+      {
+        "effect_only_export_loses": [
+          "tx:observe-pre-audit",
+          "tx:review-a",
+          "tx:review-b"
+        ],
+        "fixture": "je-fx-portfolio-about-001",
+        "material_only_export_loses": [
+          "tx:observe-pre-audit",
+          "tx:record-rhetoric-finding",
+          "tx:observe-rewrite-acceptance",
+          "tx:verify-prose-audit",
+          "tx:record-label-finding",
+          "tx:observe-label-acceptance",
+          "tx:verify-current-source",
+          "tx:record-working-context",
+          "tx:review-a",
+          "tx:review-b",
+          "tx:propose-retain",
+          "tx:propose-episodes",
+          "tx:propose-links",
+          "tx:defer-working-context",
+          "tx:propose-private-detail",
+          "tx:reject-private-detail",
+          "tx:redact-private-detail",
+          "tx:merge-current-review"
+        ]
+      }
+    ],
+    "target_results": [
+      {
+        "domain": "prose",
+        "old_position_still_matches": false,
+        "operation": "insert-before",
+        "quote_result": {
+          "ranges": [
+            [
+              105,
+              296
+            ]
+          ],
+          "status": "resolved"
+        }
+      },
+      {
+        "domain": "prose",
+        "old_position_still_matches": false,
+        "operation": "move",
+        "quote_result": {
+          "ranges": [
+            [
+              471,
+              662
+            ]
+          ],
+          "status": "resolved"
+        }
+      },
+      {
+        "domain": "prose",
+        "old_position_still_matches": true,
+        "operation": "duplicate",
+        "quote_result": {
+          "ranges": [
+            [
+              101,
+              292
+            ],
+            [
+              662,
+              853
+            ]
+          ],
+          "status": "ambiguous"
+        }
+      },
+      {
+        "domain": "prose",
+        "old_position_still_matches": false,
+        "operation": "delete",
+        "quote_result": {
+          "ranges": [],
+          "status": "unresolved"
+        }
+      },
+      {
+        "domain": "prose",
+        "old_position_still_matches": false,
+        "operation": "rewrite",
+        "quote_result": {
+          "ranges": [],
+          "status": "unresolved"
+        }
+      },
+      {
+        "domain": "prose",
+        "old_position_still_matches": false,
+        "operation": "split",
+        "quote_result": {
+          "ranges": [],
+          "status": "unresolved"
+        }
+      },
+      {
+        "domain": "reference",
+        "old_position_still_matches": false,
+        "operation": "insert-before",
+        "quote_result": {
+          "ranges": [
+            [
+              322,
+              389
+            ]
+          ],
+          "status": "resolved"
+        }
+      },
+      {
+        "domain": "reference",
+        "old_position_still_matches": false,
+        "operation": "move",
+        "quote_result": {
+          "ranges": [
+            [
+              883,
+              950
+            ]
+          ],
+          "status": "resolved"
+        }
+      },
+      {
+        "domain": "reference",
+        "old_position_still_matches": true,
+        "operation": "duplicate",
+        "quote_result": {
+          "ranges": [
+            [
+              318,
+              385
+            ],
+            [
+              950,
+              1017
+            ]
+          ],
+          "status": "ambiguous"
+        }
+      },
+      {
+        "domain": "reference",
+        "old_position_still_matches": false,
+        "operation": "delete",
+        "quote_result": {
+          "ranges": [],
+          "status": "unresolved"
+        }
+      },
+      {
+        "domain": "reference",
+        "old_position_still_matches": false,
+        "operation": "rewrite",
+        "quote_result": {
+          "ranges": [],
+          "status": "unresolved"
+        }
+      },
+      {
+        "domain": "reference",
+        "old_position_still_matches": false,
+        "operation": "split",
+        "quote_result": {
+          "ranges": [],
+          "status": "unresolved"
+        }
+      }
+    ]
+  },
+  "experiment_sha256": "323ad6f84a3fde8175e2ed99d8754cd45357d3c7841d4f4c67af210e2c8c05aa",
+  "not_established": [
+    "production architecture",
+    "full backend bake-off",
+    "whole-source/build parity",
+    "semantic equivalence through arbitrary rewrite",
+    "empirical reader success",
+    "model-grader reliability",
+    "physical erasure",
+    "dataset eligibility"
+  ],
+  "status": "pass-with-constraints",
+  "training_eligibility": "prohibited"
+}

@@ -21,6 +21,30 @@ It does **not** answer:
 
 ---
 
+## Accepted research scope — 2026-09-04
+
+The owner's accepted directions supersede older candidate wording in this document:
+
+- D-01C: Amnesia API reference and portfolio About prose are co-gating research slices.
+- D-02R: the Editorial Construction Space is a cross-cutting analytic scaffold;
+  typed plural records are logical distinctions, not mandatory separate objects.
+- D-03: causal event transactions, time-scoped facts/fluents, exact checkpoints,
+  and versioned projections are the accepted research shape, not a storage choice.
+- D-04B: meaningful semantic operations plus checkpoints; keystroke capture is optional.
+- AMN-01: pinned product inspection and isolated tests are permitted, without source mutation.
+- D-01P: only `sci-jjjjguevara/src/pages/about.astro` at the accepted immutable revision
+  is target prose; supporting profile/brief/history records are evidence or norms.
+
+Scope authorities: [D-03 acceptance](research/phase-2/D-03-ACCEPTANCE.md),
+[D-01P acceptance](research/phase-2/D-01P-ACCEPTANCE.md), and
+[Phase 2 gates](research/phase-2/STAGE-GATE.md). PR #2 was merged at
+`0d24e78713ed7a2c04810ce9961e5c28ab3da096` following owner approval.
+
+Phase 3 tests behavioral integrity, targeting, representation alternatives and
+research protocols. It does not select production representation, persistence,
+a programming language, or an ADR. The implementation gate remains closed.
+Model-training dataset research is explicitly held for a separate session.
+
 ## 0. Roadmap contract
 
 ### 0.1 This is a capability roadmap, not a release calendar
@@ -216,7 +240,15 @@ These principles describe the current intended progression. They remain subordin
 
 An Obsidian sidebar, web editor, CI check, API endpoint, or dashboard should project shared semantics rather than silently inventing its own incompatible editorial model.
 
-### 3.2 Doc Doctor should prove the framework, not define it
+### 3.2 Paired research proof precedes Doc Doctor integration
+
+The first research proof co-gates the bounded Amnesia API reference and portfolio
+About page. Success on one cannot stand in for the other. Source parity and prose
+adjudication retain different methods. Phase 2's paired representation result is
+not an empirical model-quality, reader-success, or production-generalization result.
+Doc Doctor remains the intended first downstream reference integration.
+
+#### Doc Doctor should prove the framework, not define it
 
 If a concept only makes sense inside Obsidian, that is evidence that it belongs in Doc Doctor rather than the canonical framework.
 

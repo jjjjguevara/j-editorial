@@ -1,6 +1,6 @@
 # j-editorial — Research Charter
 
-Status: **provisional / bootstrap-scoped / not yet an execution record**  
+Status: **bootstrap-scoped / research executed in phase packets / architecture held**  
 Authority: **subordinate to `BOOTSTRAP.md`; complementary to `ROADMAP.md`**  
 Current gate: **`ADVERSARIAL-REVIEW-REQUIRED`**  
 Charter role: **repository-wide research method, evidence standard, program registry, and research-to-decision boundary**
@@ -9,9 +9,33 @@ This document defines how substantial research inside `j-editorial` should be sc
 
 It is not the charter for any one research subject. Large subjects receive their own program charters under `research/`. This file exists so that dataset engineering, persistence, ontology design, evaluation science, agent design, and future research programs do not each invent incompatible evidence standards or research workflows.
 
+## Accepted research scope — 2026-09-04
+
+The owner's accepted directions supersede older candidate wording in this document:
+
+- D-01C: Amnesia API reference and portfolio About prose are co-gating research slices.
+- D-02R: the Editorial Construction Space is a cross-cutting analytic scaffold;
+  typed plural records are logical distinctions, not mandatory separate objects.
+- D-03: causal event transactions, time-scoped facts/fluents, exact checkpoints,
+  and versioned projections are the accepted research shape, not a storage choice.
+- D-04B: meaningful semantic operations plus checkpoints; keystroke capture is optional.
+- AMN-01: pinned product inspection and isolated tests are permitted, without source mutation.
+- D-01P: only `sci-jjjjguevara/src/pages/about.astro` at the accepted immutable revision
+  is target prose; supporting profile/brief/history records are evidence or norms.
+
+Scope authorities: [D-03 acceptance](research/phase-2/D-03-ACCEPTANCE.md),
+[D-01P acceptance](research/phase-2/D-01P-ACCEPTANCE.md), and
+[Phase 2 gates](research/phase-2/STAGE-GATE.md). PR #2 was merged at
+`0d24e78713ed7a2c04810ce9961e5c28ab3da096` following owner approval.
+
+Phase 3 tests behavioral integrity, targeting, representation alternatives and
+research protocols. It does not select production representation, persistence,
+a programming language, or an ADR. The implementation gate remains closed.
+Model-training dataset research is explicitly held for a separate session.
+
 ## 0. Bootstrap status and mandatory revision rule
 
-This file is a **pre-bootstrap scaffold**.
+This file is the bootstrap research-method charter. Accepted decisions and actual execution reside in versioned phase packets; earlier scaffolding language below remains a description of the revision process, not a prohibition on already authorized research.
 
 When the active bootstrap/adversarial-review work executes, it is expected to revise the **scope, structure, terminology, authority relationships, research-program decomposition, gates, and deliverables** of this file and every research charter that already exists.
 
@@ -508,13 +532,26 @@ Bootstrap should normalize these dependencies before deep research is launched.
 
 ## 17. Program registry
 
-This registry is intentionally small. Programs should be added only when a distinct research boundary is justified.
+Program identifiers name research boundaries, not Beads issue IDs or a substitute
+execution tracker. Phase results do not automatically close a whole program.
 
-| Program | Charter | Gate | Current state | Intended execution |
-|---|---|---|---|---|
-| Model-training dataset architecture, engineering, and governance | `research/model-training-data/CHARTER.md` | `DATASET-ARCHITECTURE-G0` | Placeholder / pre-bootstrap | After bootstrap scopes and releases the program |
+| Program | Boundary and evidence | Remaining gate |
+|---|---|---|
+| BR-FRAME / BR-DOM | Cross-cutting space and typed distinctions; Phase 2 paired fixtures | Broader falsification and accepted glossary |
+| BR-EVENT-STATE | Events, fluents, causal replay; Phases 2–3 | Representation/history recommendation review |
+| BR-AMN | Pinned source parity and technical fixture | Isolated product build and developer-task evidence |
+| BR-PROSE | Accepted About target and real edit history | Built-output parity and empirical reader evidence |
+| BR-GOAL / BR-PRIORS | Scope, obligations, norm applicability, exceptions | Goal and prior contract review |
+| BR-REP | Exact material, targeting, reconciliation, alternatives | Real syntax/identity and migration evidence |
+| BR-HIST | D-04B history, transaction, export and recovery workloads | Full candidate bake-off; no backend selected |
+| BR-EVAL | Obligation-specific graders and adjudication protocol | Empirical reliability and adversarial meta-evaluation |
+| BR-SEC | Authority, hostile content, retention and erasure | Deployed-control evidence remains absent |
+| BR-INT-DD | Doc Doctor consumer/migration boundary | Downstream of reviewed paired synthesis |
+| Model-training data | `research/model-training-data/CHARTER.md` | Explicitly held; separate-session release required |
 
-Future candidate programs may include editorial ontology, history/persistence, evaluation science, or other architecture verticals. Their existence and boundaries should be decided during bootstrap rather than pre-created for symmetry.
+[Phase 2 gates](research/phase-2/STAGE-GATE.md) record accepted evidence;
+[Phase 3](research/phase-3/README.md) records subsequent experiments. None is a
+production architecture authorization. No dataset research has been executed.
 
 ## 18. Beads relationship
 
