@@ -1,0 +1,25 @@
+{
+  "canonical_research_sha256": "4035f6f544c08e6c8878b0e0bbc0a2a696a48501feab0f1ea554ae74c4450e8c",
+  "canonicalization_note": "Python sorted-key compact JSON for this experiment; not an RFC 8785/JCS claim.",
+  "checks": {
+    "E-01": "passed",
+    "E-02": "passed",
+    "E-03": "passed",
+    "E-04": "passed",
+    "E-05": "passed",
+    "E-06": "passed",
+    "E-07": "passed",
+    "E-08": "passed",
+    "E-09": "passed",
+    "E-10": "passed"
+  },
+  "fixture_id": "je-fx-amnesia-notes-001",
+  "fixture_version": "0.2.0",
+  "fluent_count": 3,
+  "input_file_sha256": "cba015d96b8ca0331c48dbfb96a2d29408883167ca4bb4af7b84f3cffdffff82",
+  "projection_count": 4,
+  "scope_note": "Internal fixture consistency only; not production schema, runtime, persistence, corpus, or dataset validation.",
+  "source_binding_count": 5,
+  "status": "pass",
+  "transaction_count": 13
+}
