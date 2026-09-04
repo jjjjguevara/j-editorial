@@ -1,0 +1,57 @@
+name: Bootstrap native tracker probe
+on:
+  push:
+    branches: [research/bootstrap-phase-3-representation-evaluation]
+    paths: ['.github/workflows/bootstrap-tracker-probe.yml']
+permissions:
+  contents: read
+jobs:
+  native-tracker:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Install verified native tracker tools in temporary directory
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="$RUNNER_TEMP/beads-probe"
+          mkdir -p "$d/bin" "$d/out" "$d/bd" "$d/dolt"
+          curl --fail --location --retry 2 --max-time 120 https://github.com/gastownhall/beads/releases/download/v1.2.2/beads_1.2.2_linux_amd64.tar.gz -o "$d/bd.tgz"
+          echo "8140098a51d3b81d5548d1c5e6db1a2d9930e5d141efe2a4bff7d079c4d321e8  $d/bd.tgz" | sha256sum --check
+          curl --fail --location --retry 2 --max-time 120 https://github.com/dolthub/dolt/releases/download/v2.3.2/dolt-linux-amd64.tar.gz -o "$d/dolt.tgz"
+          echo "7a2949fa2b2b3799ee1e57e6d64519a8d65d675fd832f6469d4e07e5a1c72b14  $d/dolt.tgz" | sha256sum --check
+          tar -xzf "$d/bd.tgz" -C "$d/bd"
+          tar -xzf "$d/dolt.tgz" -C "$d/dolt"
+          install "$(find "$d/bd" -type f -name bd | head -1)" "$d/bin/bd"
+          install "$(find "$d/dolt" -type f -name dolt | head -1)" "$d/bin/dolt"
+          echo "$d/bin" >> "$GITHUB_PATH"
+      - name: Inspect native state without creating or closing issues
+        shell: bash
+        run: |
+          set -uo pipefail
+          d="$RUNNER_TEMP/beads-probe/out"
+          bd version > "$d/versions.txt" 2>&1
+          dolt version >> "$d/versions.txt" 2>&1
+          timeout 40 bd prime > "$d/prime-before.txt" 2>&1
+          echo "prime_before=$?" > "$d/exit-codes.txt"
+          timeout 120 bd bootstrap > "$d/bootstrap.txt" 2>&1
+          echo "bootstrap=$?" >> "$d/exit-codes.txt"
+          timeout 40 bd prime > "$d/prime-after.txt" 2>&1
+          echo "prime_after=$?" >> "$d/exit-codes.txt"
+          timeout 40 bd list --json > "$d/list.json" 2> "$d/list-error.txt"
+          echo "list=$?" >> "$d/exit-codes.txt"
+          timeout 40 bd ready --json > "$d/ready.json" 2> "$d/ready-error.txt"
+          echo "ready=$?" >> "$d/exit-codes.txt"
+          git status --short > "$d/local-worktree-status.txt"
+          printf '%s\n' 'Probe only: no bd create/update/close or remote sync push executed.' > "$d/scope.txt"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: bootstrap-native-tracker-${{ github.sha }}
+          path: ${{ runner.temp }}/beads-probe/out/
+          retention-days: 3
+          if-no-files-found: warn
