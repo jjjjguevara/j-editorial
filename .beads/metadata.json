@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "j_editorial",
+  "project_id": "8a58d308-06bb-46dd-a76c-138b2331ea7d"
+}
