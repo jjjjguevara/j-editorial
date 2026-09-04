@@ -32,22 +32,28 @@ jobs:
       - name: Inspect native state without creating or closing issues
         shell: bash
         run: |
+          set +e
           set -uo pipefail
           d="$RUNNER_TEMP/beads-probe/out"
+          bd metrics off > "$d/metrics.txt" 2>&1
           bd version > "$d/versions.txt" 2>&1
           dolt version >> "$d/versions.txt" 2>&1
           timeout 40 bd prime > "$d/prime-before.txt" 2>&1
           echo "prime_before=$?" > "$d/exit-codes.txt"
           timeout 120 bd bootstrap > "$d/bootstrap.txt" 2>&1
           echo "bootstrap=$?" >> "$d/exit-codes.txt"
+          timeout 120 bd dolt pull > "$d/pull.txt" 2>&1
+          echo "pull=$?" >> "$d/exit-codes.txt"
           timeout 40 bd prime > "$d/prime-after.txt" 2>&1
           echo "prime_after=$?" >> "$d/exit-codes.txt"
           timeout 40 bd list --json > "$d/list.json" 2> "$d/list-error.txt"
           echo "list=$?" >> "$d/exit-codes.txt"
           timeout 40 bd ready --json > "$d/ready.json" 2> "$d/ready-error.txt"
           echo "ready=$?" >> "$d/exit-codes.txt"
+          timeout 40 bd dolt remote list > "$d/remotes.txt" 2>&1
           git status --short > "$d/local-worktree-status.txt"
-          printf '%s\n' 'Probe only: no bd create/update/close or remote sync push executed.' > "$d/scope.txt"
+          printf '%s\n' 'Probe only: no bd create/update/close or remote sync push executed. A green job is not proof that the native commands succeeded; inspect exit-codes.txt.' > "$d/scope.txt"
+          exit 0
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
