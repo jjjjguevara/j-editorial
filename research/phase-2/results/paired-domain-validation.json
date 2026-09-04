@@ -1,0 +1,21 @@
+{
+  "canonical_research_sha256": "46a0eb9f6f6e955df749677673a85f680dc710af5041ddbf921bce2762c38cd7",
+  "checks": {
+    "C-01": "passed",
+    "C-02": "passed",
+    "C-03": "passed",
+    "C-04": "passed",
+    "C-05": "passed",
+    "C-06": "passed",
+    "C-07": "passed"
+  },
+  "manifest_file_sha256": "087bdcfa2959a678deb0fd4953596f6250e6e6be7f38b16b8a71e91a66f80ce5",
+  "pair_id": "je-pair-technical-reference-general-prose-001",
+  "pair_version": "0.1.0",
+  "prose_fixture_input_sha256": "9c24cf03065f69aacaed4375c9830feeec0a78c8277e3a07c0b8f299147b4eb2",
+  "prose_result_file_sha256": "7ecd4f181e78413017fe7653648c083ae9c06d88c8c4e6c6c646e82c9a24475d",
+  "scope_note": "Cross-result binding and manifest consistency only. Raw fixture semantics remain the responsibility of the E and P validators; empirical grader reliability, production architecture, persistence, and dataset use remain open.",
+  "status": "pass-with-constraints",
+  "technical_fixture_input_sha256": "cba015d96b8ca0331c48dbfb96a2d29408883167ca4bb4af7b84f3cffdffff82",
+  "technical_result_file_sha256": "21c0e7e86f0fefca8c17aa59ac11f83f79241ed589bda43697130b839433f67f"
+}
