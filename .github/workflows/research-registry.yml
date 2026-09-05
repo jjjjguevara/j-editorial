@@ -1,0 +1,83 @@
+name: Research registry
+
+# Native read-only validation, not a JSONL import or a competing task registry.
+# No tracker issue or remote ref is created, changed, closed, or pushed.
+on:
+  pull_request:
+    paths:
+      - 'research/**'
+      - 'RESEARCH.md'
+      - '.beads/config.yaml'
+      - '.beads/metadata.json'
+      - '.github/workflows/research-registry.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/**'
+      - 'RESEARCH.md'
+      - '.beads/config.yaml'
+      - '.beads/metadata.json'
+      - '.github/workflows/research-registry.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: research-registry-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native-registry:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Install repository-pinned native tracker tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="$RUNNER_TEMP/registry-check"
+          mkdir -p "$d/bin" "$d/out" "$d/bd" "$d/dolt"
+          git rev-parse HEAD > "$d/out/source-commit.txt"
+          curl --fail --location --retry 2 --max-time 120 https://github.com/gastownhall/beads/releases/download/v1.2.2/beads_1.2.2_linux_amd64.tar.gz -o "$d/bd.tgz"
+          echo "8140098a51d3b81d5548d1c5e6db1a2d9930e5d141efe2a4bff7d079c4d321e8  $d/bd.tgz" | sha256sum --check
+          curl --fail --location --retry 2 --max-time 120 https://github.com/dolthub/dolt/releases/download/v2.3.2/dolt-linux-amd64.tar.gz -o "$d/dolt.tgz"
+          echo "7a2949fa2b2b3799ee1e57e6d64519a8d65d675fd832f6469d4e07e5a1c72b14  $d/dolt.tgz" | sha256sum --check
+          tar -xzf "$d/bd.tgz" -C "$d/bd"
+          tar -xzf "$d/dolt.tgz" -C "$d/dolt"
+          install "$(find "$d/bd" -type f -name bd | head -1)" "$d/bin/bd"
+          install "$(find "$d/dolt" -type f -name dolt | head -1)" "$d/bin/dolt"
+          echo "$d/bin" >> "$GITHUB_PATH"
+      - name: Hydrate native tracker and check the committed registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="$RUNNER_TEMP/registry-check/out"
+          bd metrics off > "$d/metrics.txt" 2>&1
+          bd version > "$d/versions.txt"
+          dolt version >> "$d/versions.txt"
+          git ls-remote origin refs/dolt/data > "$d/tracker-ref-before.txt"
+          test -s "$d/tracker-ref-before.txt"
+          timeout 120 bd bootstrap > "$d/bootstrap.txt" 2>&1
+          timeout 120 bd dolt pull > "$d/pull.txt" 2>&1
+          timeout 40 bd prime > "$d/prime.txt" 2>&1
+          timeout 40 bd list --all -n 0 --flat --json > "$d/issues.json"
+          timeout 40 bd show j-editorial-7f2 --json > "$d/restructure-epic.json"
+          python3 research/tools/render_registry.py --check 2>&1 | tee "$d/registry-check.txt"
+          git ls-remote origin refs/dolt/data > "$d/tracker-ref-after.txt"
+          cmp "$d/tracker-ref-before.txt" "$d/tracker-ref-after.txt"
+          git diff --exit-code
+          printf '%s\n' 'Native registry matched the committed table. Remote ref stable across the read. No create/update/close/push executed; no research gate released.' > "$d/scope.txt"
+          cat "$d/scope.txt" >> "$GITHUB_STEP_SUMMARY"
+      - name: Retain native read evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: research-registry-${{ github.sha }}
+          path: ${{ runner.temp }}/registry-check/out/
+          retention-days: 3
+          if-no-files-found: error
