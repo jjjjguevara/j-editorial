@@ -1,64 +1,86 @@
-name: Bootstrap research reproduction
+name: Research reproduction
+
+# Read-only quality gate for the research tree. It verifies that committed
+# fixture results reproduce from their validators, that the Phase 3 behavioral
+# runner reproduces its recorded experiment digest, and that no relative
+# Markdown link dangles. It never writes to the repository.
 
 on:
   push:
-    branches: [research/bootstrap-phase-3-representation-evaluation]
-    paths: ['research/phase-3/**', '.github/workflows/bootstrap-research.yml']
+    paths:
+      - 'research/**'
+      - 'BOOTSTRAP.md'
+      - 'RESEARCH.md'
+      - 'ROADMAP.md'
+      - '.github/workflows/bootstrap-research.yml'
+  pull_request:
+    paths:
+      - 'research/**'
+      - 'BOOTSTRAP.md'
+      - 'RESEARCH.md'
+      - 'ROADMAP.md'
+      - '.github/workflows/bootstrap-research.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: bootstrap-research-${{ github.ref }}
+  group: research-reproduction-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  research:
+  reproduce:
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Capture public research state and environment
+      - name: Record environment
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/research-evidence"
-          git archive --format=tar HEAD -- BOOTSTRAP.md ROADMAP.md RESEARCH.md AGENTS.md .agents/skills/beads/SKILL.md research > "$RUNNER_TEMP/research-evidence/research-state.tar"
           {
             git rev-parse HEAD
             python3 --version
             git --version
             python3 -c 'import sqlite3; print("sqlite", sqlite3.sqlite_version)'
           } > "$RUNNER_TEMP/research-evidence/environment.txt"
-      - name: Independently reproduce Phase 2 outputs
+      - name: Check relative Markdown links
+        shell: bash
+        run: python3 research/tools/check_links.py .
+      - name: Reproduce committed fixture validations
         shell: bash
         run: |
           set -euo pipefail
           d="$RUNNER_TEMP/research-evidence"
-          p=research/phase-2
-          python3 "$p/tools/validate_event_fluent_fixture.py" "$p/fixtures/amnesia-notes-event-fluent.json" --output "$d/amnesia-notes-event-fluent-validation.json"
-          python3 "$p/tools/validate_portfolio_prose_fixture.py" "$p/fixtures/portfolio-about-event-fluent.json" --output "$d/portfolio-about-event-fluent-validation.json"
-          python3 "$p/tools/validate_paired_domain.py" "$p/fixtures/paired-domain-proof.json" "$d/amnesia-notes-event-fluent-validation.json" "$d/portfolio-about-event-fluent-validation.json" --output "$d/paired-domain-validation.json"
-          for f in amnesia-notes-event-fluent-validation.json portfolio-about-event-fluent-validation.json paired-domain-validation.json; do
-            cmp "$p/results/$f" "$d/$f"
-          done
-      - name: Run Phase 3 experiments when present
+          p=research/programs
+          python3 "$p/event-state/tools/validate_event_fluent_fixture.py" "$p/event-state/fixtures/amnesia-notes-event-fluent.json" --output "$d/amnesia-notes-event-fluent-validation.json"
+          python3 "$p/prose/tools/validate_portfolio_prose_fixture.py" "$p/prose/fixtures/portfolio-about-event-fluent.json" --output "$d/portfolio-about-event-fluent-validation.json"
+          python3 "$p/paired-synthesis/tools/validate_paired_domain.py" "$p/paired-synthesis/fixtures/paired-domain-proof.json" "$d/amnesia-notes-event-fluent-validation.json" "$d/portfolio-about-event-fluent-validation.json" --output "$d/paired-domain-validation.json"
+          cmp "$p/event-state/results/amnesia-notes-event-fluent-validation.json" "$d/amnesia-notes-event-fluent-validation.json"
+          cmp "$p/prose/results/portfolio-about-event-fluent-validation.json" "$d/portfolio-about-event-fluent-validation.json"
+          cmp "$p/paired-synthesis/results/paired-domain-validation.json" "$d/paired-domain-validation.json"
+      - name: Reproduce the Phase 3 behavioral runner digest
         shell: bash
         run: |
           set -euo pipefail
-          if test -f research/phase-3/tools/run_experiments.py; then
-            python3 research/phase-3/tools/run_experiments.py --output "$RUNNER_TEMP/research-evidence/phase-3-results.json"
-          else
-            printf '%s\n' 'Phase 3 runner not yet committed; this run establishes transport and Phase 2 reproduction only.' > "$RUNNER_TEMP/research-evidence/phase-3-not-executed.txt"
-          fi
-      - name: Retain bounded public research evidence
+          pk=research/packets/2026-09-04-phase-3-behavioral-probes
+          python3 "$pk/tools/run_experiments.py" --output "$RUNNER_TEMP/research-evidence/behavioral-probes.json"
+          python3 - "$pk/results/behavioral-probes.post-restructure.json" "$RUNNER_TEMP/research-evidence/behavioral-probes.json" <<'PY'
+          import json, sys
+          committed, fresh = (json.load(open(p)) for p in sys.argv[1:3])
+          assert fresh["checks_passed"] == fresh["checks_total"] == committed["checks_total"], "check count changed"
+          assert fresh["experiment_sha256"] == committed["experiment_sha256"], "experiment digest changed"
+          print("digest reproduced:", fresh["experiment_sha256"])
+          PY
+      - name: Retain evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: bootstrap-research-${{ github.sha }}
+          name: research-reproduction-${{ github.sha }}
           path: ${{ runner.temp }}/research-evidence/
           retention-days: 3
           if-no-files-found: error

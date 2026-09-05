@@ -1,8 +1,9 @@
 name: Bootstrap native tracker probe
+# Manual read-only probe of native Beads/Dolt access in an ephemeral runner.
+# It creates, closes and pushes nothing. Inspect exit-codes.txt in the artifact;
+# a green job only means the probe ran.
 on:
-  push:
-    branches: [research/bootstrap-phase-3-representation-evaluation]
-    paths: ['.github/workflows/bootstrap-tracker-probe.yml']
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:

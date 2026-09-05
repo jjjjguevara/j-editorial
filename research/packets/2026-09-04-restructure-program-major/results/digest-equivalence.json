@@ -1,0 +1,33 @@
+{
+  "checks_passed": [
+    67,
+    67
+  ],
+  "digests_equivalent_up_to_input_paths": true,
+  "environments": {
+    "original": {
+      "git": "git version 2.55.0",
+      "git_payload_bytes": 5673,
+      "native_scope": "Git/SQLite bounded mechanism probes; not a production backend bake-off",
+      "python": "3.12.3",
+      "sqlite": "3.45.1"
+    },
+    "rerun": {
+      "git": "git version 2.52.0",
+      "git_payload_bytes": 5673,
+      "native_scope": "Git/SQLite bounded mechanism probes; not a production backend bake-off",
+      "python": "3.12.2",
+      "sqlite": "3.45.1"
+    }
+  },
+  "input_digests_identical_after_key_mapping": true,
+  "original_experiment_sha256": "323ad6f84a3fde8175e2ed99d8754cd45357d3c7841d4f4c67af210e2c8c05aa",
+  "rerun_digest_with_original_input_keys": "323ad6f84a3fde8175e2ed99d8754cd45357d3c7841d4f4c67af210e2c8c05aa",
+  "rerun_experiment_sha256": "7cabdb9258aee57354a5e9acf5667fd40213c629863aff7bb771d4e25dc228f0",
+  "sections_identical": {
+    "checks": true,
+    "legacy_validator_mutations": true,
+    "representation_measurements": true,
+    "target_results": true
+  }
+}

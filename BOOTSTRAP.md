@@ -25,15 +25,17 @@ The owner's accepted directions supersede older candidate wording in this docume
 - D-01P: only `sci-jjjjguevara/src/pages/about.astro` at the accepted immutable revision
   is target prose; supporting profile/brief/history records are evidence or norms.
 
-Scope authorities: [D-03 acceptance](research/phase-2/D-03-ACCEPTANCE.md),
-[D-01P acceptance](research/phase-2/D-01P-ACCEPTANCE.md), and
-[Phase 2 gates](research/phase-2/STAGE-GATE.md). PR #2 was merged at
+Scope authorities: [D-03 acceptance](research/decisions/D-03-ACCEPTANCE.md),
+[D-01P acceptance](research/decisions/D-01P-ACCEPTANCE.md), and
+[Phase 2 gates](research/packets/2026-09-04-phase-2-foundations/STAGE-GATE.md). PR #2 was merged at
 `0d24e78713ed7a2c04810ce9961e5c28ab3da096` following owner approval.
 
 Phase 3 tests behavioral integrity, targeting, representation alternatives and
 research protocols. It does not select production representation, persistence,
 a programming language, or an ADR. The implementation gate remains closed.
 Model-training dataset research is explicitly held for a separate session.
+
+Provenance of the directions above, per [`research/decisions/DECISION-LOG.md`](research/decisions/DECISION-LOG.md): `D-02R`, `AMN-01`, and `D-01P` carry the owner's verbatim statements; `D-01` and `D-04` are paraphrased and await confirmation; the `D-03` acceptance preserves no owner statement and is a recorded research direction, not an accepted decision, until confirmed. The text this block superseded is preserved verbatim in section 32.
 
 ## 0. How to read this contract
 
@@ -104,6 +106,8 @@ The bootstrap phase is **not** intended to:
 - treat the first specialist agent as a general-purpose autonomous editor.
 
 ## 3. Accepted research hypothesis
+
+Superseded formulation preserved in section 32.1.
 
 The current research model is:
 
@@ -269,6 +273,8 @@ The representation decision must be driven by capabilities, not convenience.
 
 ### 6.1 Research direction: authority by concern
 
+Superseded formulation preserved in section 32.2.
+
 Exact material state, editorial-semantic assertions and derived projections answer
 different authority questions over one multidimensional state. They do not require
 three stores, three exclusive layers, or a structured-first canonical document.
@@ -362,6 +368,8 @@ The exact state machine is not accepted and may vary by vertical.
 
 ### 8.2 Heterogeneous quality observations
 
+Superseded heading and sentence preserved in section 32.3.
+
 The current direction preserves typed multidimensional observations. Neither a scalar nor vector arithmetic defines canonical editorial state. Candidate observable concerns include:
 
 - correctness;
@@ -392,7 +400,7 @@ A simple weighted mean is not automatically appropriate because high style score
 
 ## 9. Editorial gap ontology vertical
 
-Gap fields are derived views. Obligations, findings, evidence, decisions and continuing conditions remain distinguishable; the following gap families are classification candidates, not universal root objects.
+Gap fields are derived views. Obligations, findings, evidence, decisions and continuing conditions remain distinguishable; the following gap families are classification candidates, not universal root objects. Superseded sentence preserved in section 32.4.
 
 ### 9.1 Candidate gap families
 
@@ -1527,6 +1535,13 @@ While `ADVERSARIAL-REVIEW-REQUIRED` is active:
 - if repository guidance, Beads work, and this file conflict, the conflict must be surfaced rather than silently resolved by implementation;
 - every implementation agent must read this file before creating product structure or code once implementation is eventually released.
 
+Added 2026-09-04 under `RESEARCH.md` section 21:
+
+- **supersede, never delete**: text removed from this contract is preserved verbatim in section 32 with the decision that superseded it;
+- **no automated authorship**: no CI job, script, or unattended process may commit changes to this contract; edits are authored on a reviewed branch and merged by the owner;
+- **verbatim basis**: an amendment that rests on an owner decision cites a row of `research/decisions/DECISION-LOG.md` that preserves the owner's statement; a paraphrased decision cannot amend this contract;
+- **one home for accepted scope**: the "Accepted research scope" block above is the only copy; `RESEARCH.md` and `ROADMAP.md` point to it rather than restating it.
+
 ## 31. Current gate
 
 **`ADVERSARIAL-REVIEW-REQUIRED`**
@@ -1536,3 +1551,50 @@ No architecture decision in this document is accepted merely because it is recor
 No full repository structure, production schema, benchmark corpus, agent runtime, or application implementation is authorized yet.
 
 The gate is released only by explicit owner instruction after the adversarial review has either closed the material gaps above or consciously accepted the remaining risks.
+
+## 32. Superseded formulations (preserved verbatim)
+
+The passages below were removed or replaced by the 2026-09-04 controlling-document alignment committed from CI on the Phase 3 branch. They are preserved here unchanged so that the pre-bootstrap formulation remains inspectable, per section 30. Nothing in this section is current guidance.
+
+### 32.1 Former section 3, replaced by "Accepted research hypothesis" (basis: `D-02R`, `D-03` research direction)
+
+#### 3. Core system hypothesis (superseded)
+
+The current working model is:
+
+`Goal Contract + Normative Priors + Artifact State + Gap Field + Evidence + Editorial Operations + Outcomes`
+
+For an artifact state `S_t`, goal contract `G`, applicable prior set `P`, and evidence context `E`, the system should be able to derive or observe a set of editorial deficiencies, obligations, findings, or unresolved conditions:
+
+`GapField_t = Γ(S_t | G, P, E)`
+
+An editorial action `A_t` transforms the artifact and related state:
+
+`S_(t+1) = T(S_t, A_t)`
+
+The useful historical primitive is therefore not merely a snapshot or diff, but a transition with context:
+
+`(G, P, E, S_t, GapField_t, A_t, Outcome_t, S_(t+1), GapField_(t+1))`
+
+This model is provisional. The adversarial review must specifically test whether *gap* is the correct central intermediate representation, or whether obligations, claims, findings, violations, review comments, unresolved questions, risks, and defects need distinct first-class semantics.
+
+### 32.2 Former section 6.1 (basis: `D-03` research direction)
+
+#### 6.1 Provisional direction: structured editorial state (superseded)
+
+The current favored model is that the canonical application state may need a structured tree/graph with durable identities for meaningful editorial entities. Markdown or another source-text form would then be an import/export or publication projection.
+
+This is **not yet accepted**.
+
+### 32.3 Former section 8.2 heading and lead sentence
+
+#### 8.2 Quality vector (superseded)
+
+The current direction favors multidimensional observations over a canonical scalar. Candidate dimensions include:
+
+### 32.4 Former section 9 lead sentence
+
+#### 9. Editorial gap ontology vertical (superseded lead)
+
+Editorial gaps are currently the most important candidate intermediate representation.
+

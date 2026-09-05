@@ -60,18 +60,26 @@ This protocol applies when ending a Beads implementation workflow. It is subordi
 
 ## Build & Test
 
-_Add your build and test commands here_
+There is no product code yet. The quality gates are the research reproduction checks:
 
 ```bash
-# Example:
-# npm install
-# npm test
+python3 research/tools/check_links.py .
+python3 research/programs/event-state/tools/validate_event_fluent_fixture.py research/programs/event-state/fixtures/amnesia-notes-event-fluent.json
+python3 research/programs/prose/tools/validate_portfolio_prose_fixture.py research/programs/prose/fixtures/portfolio-about-event-fluent.json
+python3 research/packets/2026-09-04-phase-3-behavioral-probes/tools/run_experiments.py --output /tmp/behavioral-probes.json
+python3 research/tools/render_registry.py --check   # requires bd; verifies RESEARCH.md registry matches the tracker
 ```
+
+Passing them shows internal consistency and reproduction of recorded digests, not any research claim.
 
 ## Architecture Overview
 
-_Add a brief overview of your project architecture_
+Pre-implementation repository under the `ADVERSARIAL-REVIEW-REQUIRED` gate. `BOOTSTRAP.md` is the controlling contract, `RESEARCH.md` the research method, `ROADMAP.md` the hypothesis register. Research lives under `research/` in a program-major layout: `research/programs/<slug>/` holds each program's charter, results, fixtures, and tools; `research/packets/` holds frozen execution records; `research/decisions/` holds owner decisions with verbatim statements; `research/LEDGER.md` is the only source ledger new work may cite. Start at `research/README.md`.
 
 ## Conventions & Patterns
 
-_Add your project-specific conventions here_
+- Read `BOOTSTRAP.md` before proposing any structure or code; the implementation gate is closed.
+- Research method rules in `RESEARCH.md` sections 21 to 28 apply to every new fixture, validator, or result: pre-register before authoring, keep fixture author, validator author, and red team in separate sessions, commit raw bytes beside every digest, label agent reading as expert or secondary evidence and never as deterministic, use only the five gate verdicts, and maintain the coverage matrix.
+- Controlling documents are never edited by CI or scripts; superseded text is preserved verbatim; owner decisions are recorded with their exact words in `research/decisions/DECISION-LOG.md`.
+- Beads is the program registry: one epic per program labeled `research-program`, one task per gate labeled `gate`. Render the `RESEARCH.md` registry with `research/tools/render_registry.py` after tracker changes.
+- Packets under `research/packets/` are frozen; only links and superseded banners may change.

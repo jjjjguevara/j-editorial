@@ -1,0 +1,92 @@
+{
+  "programs": {
+    "frame-domain":          {"alias": "BR-FRAME / BR-DOM",  "title": "Editorial Construction Space and typed domain distinctions"},
+    "event-state":           {"alias": "BR-EVENT-STATE",     "title": "Causal event-fluent editorial state"},
+    "amnesia":               {"alias": "BR-AMN",             "title": "Amnesia technical-reference proof"},
+    "prose":                 {"alias": "BR-PROSE",           "title": "General-prose proof (portfolio About page)"},
+    "paired-synthesis":      {"alias": "paired-proof synthesis", "title": "Paired technical-reference and general-prose synthesis"},
+    "goal-priors":           {"alias": "BR-GOAL / BR-PRIORS","title": "Goal contracts and normative priors"},
+    "representation":        {"alias": "BR-REP",             "title": "Representation, targeting, and authority"},
+    "history":               {"alias": "BR-HIST",            "title": "History and persistence"},
+    "evaluation":            {"alias": "BR-EVAL",            "title": "Evaluation science"},
+    "security":              {"alias": "BR-SEC",             "title": "Security, authority, privacy, and erasure"},
+    "doc-doctor-integration":{"alias": "BR-INT-DD",          "title": "Doc Doctor consumer and migration boundary"},
+    "model-training-data":   {"alias": "DG-00..DG-14",       "title": "Model-training dataset architecture, engineering, and governance"}
+  },
+  "packets": {
+    "2026-09-04-phase-1-adversarial-review": "Bootstrap phases 1, 1.1, and 1.2: adversarial review, owner-decision holds, D-02/D-03 research, Amnesia slice audit",
+    "2026-09-04-phase-2-foundations": "Phase 2: event-fluent foundations, Amnesia oracle, portfolio prose fixture, paired-domain co-gate",
+    "2026-09-04-phase-3-behavioral-probes": "Phase 3: behavioral integrity probes, representation alternatives, targeting, evaluation protocol, contract alignment",
+    "2026-09-04-restructure-program-major": "Program-major restructuring, unified ledger, decision log, method rules"
+  },
+  "moves": {
+    "research/bootstrap/D-02-SEMANTIC-CENTER-REVIEW.md":            "research/programs/frame-domain/D-02-SEMANTIC-CENTER-REVIEW.md",
+    "research/phase-2/FRAME-DOMAIN-RESULT.md":                      "research/programs/frame-domain/FRAME-DOMAIN-RESULT.md",
+
+    "research/bootstrap/D-03-EVENT-STATE-REVIEW.md":                "research/programs/event-state/D-03-EVENT-STATE-REVIEW.md",
+    "research/phase-2/EVENT-FLUENT-EXPERIMENT.md":                  "research/programs/event-state/EVENT-FLUENT-EXPERIMENT.md",
+    "research/phase-2/fixtures/amnesia-notes-event-fluent.json":    "research/programs/event-state/fixtures/amnesia-notes-event-fluent.json",
+    "research/phase-2/tools/validate_event_fluent_fixture.py":      "research/programs/event-state/tools/validate_event_fluent_fixture.py",
+    "research/phase-2/results/amnesia-notes-event-fluent-validation.json": "research/programs/event-state/results/amnesia-notes-event-fluent-validation.json",
+
+    "research/bootstrap/AMNESIA-DOCS-SLICE-AUDIT.md":               "research/programs/amnesia/AMNESIA-DOCS-SLICE-AUDIT.md",
+    "research/phase-2/AMNESIA-ORACLE-EXPERIMENT.md":                "research/programs/amnesia/AMNESIA-ORACLE-EXPERIMENT.md",
+
+    "research/phase-2/PORTFOLIO-PROSE-CANDIDATE-AUDIT.md":          "research/programs/prose/PORTFOLIO-PROSE-CANDIDATE-AUDIT.md",
+    "research/phase-2/PORTFOLIO-PROSE-EXPERIMENT.md":               "research/programs/prose/PORTFOLIO-PROSE-EXPERIMENT.md",
+    "research/phase-2/fixtures/portfolio-about-event-fluent.json":  "research/programs/prose/fixtures/portfolio-about-event-fluent.json",
+    "research/phase-2/tools/validate_portfolio_prose_fixture.py":   "research/programs/prose/tools/validate_portfolio_prose_fixture.py",
+    "research/phase-2/results/portfolio-about-event-fluent-validation.json": "research/programs/prose/results/portfolio-about-event-fluent-validation.json",
+
+    "research/phase-2/PAIRED-DOMAIN-RESULT.md":                     "research/programs/paired-synthesis/PAIRED-DOMAIN-RESULT.md",
+    "research/phase-2/fixtures/paired-domain-proof.json":           "research/programs/paired-synthesis/fixtures/paired-domain-proof.json",
+    "research/phase-2/tools/validate_paired_domain.py":             "research/programs/paired-synthesis/tools/validate_paired_domain.py",
+    "research/phase-2/results/paired-domain-validation.json":       "research/programs/paired-synthesis/results/paired-domain-validation.json",
+
+    "research/phase-2/REPRESENTATION-HISTORY-RESULT.md":            "research/programs/representation/REPRESENTATION-HISTORY-RESULT.md",
+    "research/phase-3/fixtures/target-fragments.json":              "research/programs/representation/fixtures/target-fragments.json",
+
+    "research/phase-3/EVALUATION-PROTOCOL.md":                      "research/programs/evaluation/EVALUATION-PROTOCOL.md",
+
+    "research/phase-2/SECURITY-AUTHORITY-BASELINE.md":              "research/programs/security/SECURITY-AUTHORITY-BASELINE.md",
+
+    "research/model-training-data/CHARTER.md":                      "research/programs/model-training-data/CHARTER.md",
+
+    "research/bootstrap/BOOTSTRAP-DECISION-ADDENDUM.md":            "research/decisions/BOOTSTRAP-DECISION-ADDENDUM.md",
+    "research/bootstrap/BOOTSTRAP-DECISION-ADDENDUM-2.md":          "research/decisions/BOOTSTRAP-DECISION-ADDENDUM-2.md",
+    "research/bootstrap/D-02-ACCEPTANCE.md":                        "research/decisions/D-02-ACCEPTANCE.md",
+    "research/bootstrap/OWNER-DECISIONS.md":                        "research/decisions/OWNER-DECISIONS.md",
+    "research/bootstrap/AMNESIA-ORACLE-AUTHORIZATION.md":           "research/decisions/AMNESIA-ORACLE-AUTHORIZATION.md",
+    "research/phase-2/D-03-ACCEPTANCE.md":                          "research/decisions/D-03-ACCEPTANCE.md",
+    "research/phase-2/D-01P-ACCEPTANCE.md":                         "research/decisions/D-01P-ACCEPTANCE.md",
+
+    "research/bootstrap/README.md":                                 "research/packets/2026-09-04-phase-1-adversarial-review/README.md",
+    "research/bootstrap/ADVERSARIAL-REVIEW.md":                     "research/packets/2026-09-04-phase-1-adversarial-review/ADVERSARIAL-REVIEW.md",
+    "research/bootstrap/NEXT-PHASE-CONTRACT.md":                    "research/packets/2026-09-04-phase-1-adversarial-review/NEXT-PHASE-CONTRACT.md",
+    "research/bootstrap/PHASE-1.2-EXECUTION-ADDENDUM.md":           "research/packets/2026-09-04-phase-1-adversarial-review/PHASE-1.2-EXECUTION-ADDENDUM.md",
+    "research/bootstrap/SOURCE-LEDGER.md":                          "research/packets/2026-09-04-phase-1-adversarial-review/SOURCE-LEDGER.md",
+    "research/bootstrap/PHASE-2-SOURCE-LEDGER.md":                  "research/packets/2026-09-04-phase-1-adversarial-review/PHASE-2-SOURCE-LEDGER.md",
+    "research/bootstrap/D-03-SOURCE-LEDGER.md":                     "research/packets/2026-09-04-phase-1-adversarial-review/D-03-SOURCE-LEDGER.md",
+
+    "research/phase-2/README.md":                                   "research/packets/2026-09-04-phase-2-foundations/README.md",
+    "research/phase-2/STAGE-GATE.md":                               "research/packets/2026-09-04-phase-2-foundations/STAGE-GATE.md",
+    "research/phase-2/REPRODUCE.md":                                "research/packets/2026-09-04-phase-2-foundations/REPRODUCE.md",
+    "research/phase-2/SOURCE-LEDGER.md":                            "research/packets/2026-09-04-phase-2-foundations/SOURCE-LEDGER.md",
+
+    "research/phase-3/README.md":                                   "research/packets/2026-09-04-phase-3-behavioral-probes/README.md",
+    "research/phase-3/STAGE-GATE.md":                               "research/packets/2026-09-04-phase-3-behavioral-probes/STAGE-GATE.md",
+    "research/phase-3/RESULTS.md":                                  "research/packets/2026-09-04-phase-3-behavioral-probes/RESULTS.md",
+    "research/phase-3/SOURCE-LEDGER.md":                            "research/packets/2026-09-04-phase-3-behavioral-probes/SOURCE-LEDGER.md",
+    "research/phase-3/PUBLICATION-MANIFEST.json":                   "research/packets/2026-09-04-phase-3-behavioral-probes/PUBLICATION-MANIFEST.json",
+    "research/phase-3/results/behavioral-probes.json":              "research/packets/2026-09-04-phase-3-behavioral-probes/results/behavioral-probes.json",
+    "research/phase-3/results/contract-alignment.json":             "research/packets/2026-09-04-phase-3-behavioral-probes/results/contract-alignment.json",
+    "research/phase-3/tools/run_experiments.py":                    "research/packets/2026-09-04-phase-3-behavioral-probes/tools/run_experiments.py",
+    "research/phase-3/tools/align_contracts.py":                    "research/packets/2026-09-04-phase-3-behavioral-probes/tools/align_contracts.py"
+  },
+  "directory_renames": {
+    "research/bootstrap/": "research/packets/2026-09-04-phase-1-adversarial-review/",
+    "research/phase-2/": "research/packets/2026-09-04-phase-2-foundations/",
+    "research/phase-3/": "research/packets/2026-09-04-phase-3-behavioral-probes/",
+    "research/model-training-data/": "research/programs/model-training-data/"
+  }
+}
