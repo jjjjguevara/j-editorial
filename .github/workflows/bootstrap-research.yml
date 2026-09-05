@@ -37,17 +37,21 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Record environment
+      - name: Record environment and checked source
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p "$RUNNER_TEMP/research-evidence"
+          d="$RUNNER_TEMP/research-evidence"
+          mkdir -p "$d"
           {
             git rev-parse HEAD
             python3 --version
             git --version
             python3 -c 'import sqlite3; print("sqlite", sqlite3.sqlite_version)'
-          } > "$RUNNER_TEMP/research-evidence/environment.txt"
+          } > "$d/environment.txt"
+          # Tracked source only: no .git directory, runner credentials, or local DB.
+          git archive --format=tar HEAD | gzip -n > "$d/checked-source.tar.gz"
+          (cd "$d" && sha256sum checked-source.tar.gz > checked-source.sha256)
       - name: Check relative Markdown links
         shell: bash
         run: python3 research/tools/check_links.py .
@@ -76,6 +80,17 @@ jobs:
           assert fresh["experiment_sha256"] == committed["experiment_sha256"], "experiment digest changed"
           print("digest reproduced:", fresh["experiment_sha256"])
           PY
+      - name: Verify equivalence with the pre-restructure experiment
+        shell: bash
+        run: |
+          set -euo pipefail
+          pk=research/packets/2026-09-04-phase-3-behavioral-probes
+          migration=research/packets/2026-09-04-restructure-program-major
+          python3 "$migration/tools/verify_digest_equivalence.py" \
+            "$pk/results/behavioral-probes.json" \
+            "$RUNNER_TEMP/research-evidence/behavioral-probes.json" \
+            "$migration/move-map.json" \
+            "$RUNNER_TEMP/research-evidence/digest-equivalence.json"
       - name: Retain evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
