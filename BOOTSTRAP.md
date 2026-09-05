@@ -35,7 +35,16 @@ research protocols. It does not select production representation, persistence,
 a programming language, or an ADR. The implementation gate remains closed.
 Model-training dataset research is explicitly held for a separate session.
 
-Provenance of the directions above, per [`research/decisions/DECISION-LOG.md`](research/decisions/DECISION-LOG.md): `D-02R`, `AMN-01`, and `D-01P` carry the owner's verbatim statements; `D-01` and `D-04` are paraphrased and await confirmation; the `D-03` acceptance preserves no owner statement and is a recorded research direction, not an accepted decision, until confirmed. The text this block superseded is preserved verbatim in section 32.
+Provenance of the directions above is qualified by [`DECISION-LOG.md`](research/decisions/DECISION-LOG.md) and the merged [PR #3 reconciliation receipt](research/decisions/PR-3-RECONCILIATION.md). `D-02R`, `AMN-01`, and `D-01P` preserve verbatim statements in their records. `D-01`, `D-03` acceptance, and `D-04` have recovered prior-acceptance excerpts, not independently archived or authenticated original transcript bytes. `D-04B` retains the owner's **for now** qualification. The earlier missing-statement finding is historical, not a new demand to repeat those decisions. Research-scope acceptance is not empirical validation, an accepted architecture, or implementation authorization.
+
+## Contract revision record
+
+| Revision | Basis | Affected sections | Authority |
+|---|---|---|---|
+| 2026-09-04, Phase 3 and restructure | Existing research directions and `RESTRUCTURE-1`; provenance qualified by PR #3 | Scope block; 3, 6.1, 8.2, 9, 30, 32 | Historical record; original formulations remain in section 32 |
+| 2026-09-05, adversarial contract review | `BOOTSTRAP-REVIEW-2`; [review packet](research/packets/2026-09-05-bootstrap-contract-review/README.md) | Scope provenance; 0.5, 3, 5, 6.4, 7.1, 8.3–8.4, 11.4, 12.6, 13.9, 14.6, 15.11, 22.7, 26–27, 32 | Proposed amendments for external revision; no owner acceptance of the proposals or gate release is inferred |
+
+The review verdict is **RETURN-WITH-FINDINGS**, not bootstrap completion. The packet maps every section 25 question and every section 24 queue item to its disposition and existing program. Merging a documentary amendment alone does not close a research gate or authorize implementation.
 
 ## 0. How to read this contract
 
@@ -65,6 +74,12 @@ A forbidden assumption is something agents and contributors must not infer from 
 - Historical human edits exist; **that does not make every accepted historical edit a unique gold answer**.
 - A style guide can seed ontology rules; **that does not make guide text redistributable or universally applicable**.
 - A benchmark score improves; **that does not prove production quality improved**.
+
+### 0.5 Review authority and evidence status
+
+A review request authorizes analysis and proposed amendments within its stated scope. It does not authorize the reviewer to accept its own proposals, close empirical gates, waive owner constraints, or merge the resulting PR. A subsequent merge accepts only the scope explicitly stated in the owner's instruction; a research, implementation, provider-disclosure, or dataset release must be named separately.
+
+The 2026-09-05 review is a separate static-review session from the earlier fixture work. Its counterexamples are logical or explicitly hypothetical; its new wording has not received independent external validation. Reproduction of existing fixtures is a tooling result, not a replacement for the pre-registration, independent authorship, red-team, and raw-evidence requirements in `RESEARCH.md` sections 23–27.
 
 ## 1. Mission
 
@@ -105,7 +120,7 @@ The bootstrap phase is **not** intended to:
 - make copyrighted editorial-guide content part of the repository without a licensing determination;
 - treat the first specialist agent as a general-purpose autonomous editor.
 
-## 3. Accepted research hypothesis
+## 3. Research hypothesis under falsification
 
 Superseded formulation preserved in section 32.1.
 
@@ -229,7 +244,7 @@ A versioned rule, convention, requirement, heuristic, or expectation that may ap
 
 ### Gap
 
-A candidate first-class representation of an unresolved editorial condition. It is broader than a typo and may include epistemic, completeness, structural, usability, style, lifecycle, or release deficiencies.
+A derived, context-scoped view of unresolved adverse findings or unsatisfied applicable obligations. A persisted gap record may identify that view and its resolution history; it is not a requirement for a universal root entity or a separate store. One underlying problem can appear in several classifications without becoming several independently countable defects.
 
 ### Finding
 
@@ -237,7 +252,7 @@ An observation produced by a reviewer, detector, grader, or agent. A finding may
 
 ### Obligation
 
-A requirement that the artifact is expected to satisfy. The review must decide whether obligations are distinct from gaps. A missing obligation may produce a gap, but the concepts are not obviously identical.
+A scoped requirement expected to be satisfied under a particular goal or norm. It remains distinguishable from an observation of noncompliance: an obligation can exist before any detector runs and can be satisfied without ever producing a gap. Logical distinction does not mandate a separate class, table, or service.
 
 ### Evidence item
 
@@ -253,7 +268,7 @@ A historical event with actor, cause/context, operation, evidence, and outcome s
 
 ### Snapshot / checkpoint
 
-A materializable semantic state preserved at a meaningful boundary.
+A preserved material state at a declared boundary, with separate claims about exact source bytes, reconstructed semantic state, and derived projections. Availability, rights, and replay limitations must be recorded; a semantic summary is not an exact source checkpoint.
 
 ### Release
 
@@ -307,6 +322,12 @@ The adversarial review must test whether stable semantic identities can be layer
 
 A structured model should only be selected if it materially improves identity, provenance, collaboration, eval generation, or queryability enough to justify migration and round-trip complexity.
 
+### 6.4 Identity and fidelity are separate contracts
+
+An entity identity is not its content hash: identical paragraphs in different artifacts may have different obligations, authority, and histories. Every consequential target binds an artifact revision, representation/coordinate system, selector, and resolution outcome. Exact, ambiguous, stale, deleted, and unresolved targets remain distinguishable. Split, merge, copy, and rewrite correspondence needs evidence; matching text alone does not transfer identity or approval.
+
+Compare at least a source/checkpoint-plus-annotation control with richer models. Declare supported syntax, encoding, normalization, opaque-extension behavior, and exact-versus-semantic round-trip guarantees. Preserve original bytes separately from any normalized hash input. A portable digest needs an explicit serialization profile; sorted JSON alone is not a portability proof. Neither JSON nor RFC 8785 is selected here. (`SRC-013`, `SRC-014`, `SRC-089` in the [source ledger](research/LEDGER.md).)
+
 ## 7. Goal-contract vertical
 
 A free-text metadata `description` is useful as intent, but it is not sufficient by itself as an eval specification.
@@ -346,6 +367,12 @@ Open questions include:
 - How are contract changes distinguished from artifact regressions?
 - Can the same artifact be evaluated against several goal contracts simultaneously?
 
+### 7.1 Goal and prior changes cannot silently improve the result
+
+Goal decomposition is a reviewable proposal, not evaluator authority to remove inconvenient obligations. Bind each obligation to its source, scope, version, applicability decision, and responsible approver. Uncertain applicability is not the same as not applicable. Unresolved precedence conflicts remain explicit rather than choosing whichever rule yields a pass.
+
+Compare revisions under a fixed goal when measuring editorial improvement. A changed goal, evidence bundle, or norm starts a separately identified evaluation; report that change rather than attributing the whole score difference to the edit. Waivers and accepted risks require explicit authority, scope, rationale, and expiry or revisit conditions. They do not turn a failed correctness observation into a true one, and non-waivable conditions remain non-waivable.
+
 ## 8. Lifecycle, quality, and release model
 
 ### 8.1 Lifecycle state
@@ -384,17 +411,17 @@ A domain-specific vector may be more precise. An API reference, for example, may
 
 ### 8.3 Release readiness
 
-Release readiness should be represented as a gate over requirements and blockers rather than as `quality == 1`.
+Release readiness is a policy decision over an approved obligation inventory, not `quality == 1`, a detector returning no findings, or a Boolean reduction over an unvalidated list.
 
-A simple conceptual form is:
+For a declared release scope, require an approved contract and applicability inventory; admissible evidence for every required obligation; explicit dispositions for conflicts and blockers; current target and input versions; and an authorized release decision. Unknown, not evaluated, failed execution, missing evidence, and unresolved applicability cannot silently become pass.
 
-`ReleaseReady = all(required_conditions_pass) && no(open_release_blockers)`
+An empty required-obligation set requires an explicit reviewed justification; it must not pass through vacuous truth. A waiver is a separate authorized disposition, permitted only where the release policy allows it, and never silently rewrites the observation. An expired waiver or evidence relevant to an older artifact, goal, prior, or source state cannot authorize the current release.
 
-The release decision must retain the contract, source/evidence state, grader versions, and unresolved non-blocking gaps that informed it.
+Evaluation, release approval, and publication are distinct actions. Recheck the approved revision and authority before publication. Retain the obligation inventory, evaluation-input manifest, evidence references, approval, waivers, and unresolved non-blocking gaps. There is no executable production release policy in this repository yet.
 
 ### 8.4 Scalar summaries
 
-If a scalar is useful for optimization or presentation, it must be derived from interpretable dimensions or gap liabilities and must not erase the underlying vector.
+If a scalar is useful for optimization or presentation, it must be derived from interpretable observations under a declared measurement policy and must not erase those observations. Neither vector arithmetic nor multiplying ordinal severity, confidence, and relevance is assumed to be meaningful. Overlapping findings must not be double-counted merely because they have several types.
 
 A simple weighted mean is not automatically appropriate because high style scores must not compensate for severe correctness failures. Weighted geometric means, hard gates, or risk-weighted liability functions may be better candidates, but none is accepted yet.
 
@@ -655,6 +682,14 @@ The system should preserve enough information to answer:
 
 Human, agent, deterministic-tool, external-system, and model-grader actors must remain distinguishable.
 
+### 11.4 Evidence and projection closure
+
+A provenance link identifies who recorded or derived a statement; it does not establish that statement's truth, authority, or independence. Preserve evidence chains and conflicting conclusions without treating copied citations or circular support as independent corroboration.
+
+A reproducible projection binds its complete input closure: artifact/checkpoint, goal, applicable norms, evidence, interpretation, reducer/projector, and any time or external-state input. Record acquisition time separately from the period a claim is asserted to hold. Reinterpretation under new evidence produces a new result rather than silently rewriting the earlier one.
+
+A hash without available bytes is not reproducible evidence. Rights, access, and erasure restrictions take precedence over a blanket raw-output-retention instruction; record the authorized location, limitation, and lost reproduction capability rather than fabricating replacement bytes or publishing restricted material. (`SRC-014`, `SRC-089`; `RESEARCH.md` section 25.)
+
 ## 12. Temporal/versioning vertical
 
 The current temporal model distinguishes at least three scales.
@@ -702,6 +737,14 @@ Questions include:
 Line numbers and byte offsets are inadequate long-term anchors for many editorial relationships. The favored direction is durable semantic identity for at least some objects.
 
 The review must test whether stable identity belongs in the core representation, an overlay, or the operation-history layer.
+
+### 12.6 Command, event, replay, and concurrency proof obligations
+
+Distinguish a proposed command, its authorization, attempted execution, committed domain change, and verified outcome. A rejected or failed attempt may have an audit record without a successful artifact post-state. Partial effects must be recorded and reconciled; they cannot be relabeled an atomic success.
+
+The research workload must include stale commands, duplicate delivery, retries after an uncertain outcome, conflicting concurrent edits, merge/revert, and approval against a superseded revision. Bind consequential commands to their expected pre-state and authority scope. Define the deduplication and conflict policy rather than promising exactly-once effects by vocabulary alone.
+
+Historical replay rebuilds declared state; it must not repeat publication, provider calls, deletion, or other external side effects. Record the results of those effects separately. A new merge or revert is a new state requiring the applicable checks; approvals from its parents do not transfer automatically. Causal parents and domain conflict handling, not incidental storage order or wall-clock sorting alone, determine admissible histories. (`SRC-114`, `SRC-119`.)
 
 ## 13. Persistence architecture hypotheses
 
@@ -794,6 +837,12 @@ Any backend review should explicitly score:
 - migration/export path;
 - analytical interoperability;
 - benchmark-data extraction ergonomics.
+
+### 13.9 A bounded comparison, not a substrate commitment
+
+Before a bake-off, declare representative workload sizes, latency and recovery objectives, resource/cost limits, stop conditions, hard requirements, and who accepts tradeoffs. Do not invent these values after seeing the favored candidate's result. Compare a minimal checkpoint-plus-journal control against genuinely different candidates; re-encoding one in-memory dictionary is not a storage or model comparison.
+
+Test export/import, corruption and interrupted writes, restoration with unavailable or erased payloads, and semantic equivalence of required queries after backend exit. Record the operational cost of extra stores and consistency boundaries. Offline-first and continuous collaboration remain explicit scope questions, not reasons to select a CRDT by default. Where the budget cannot support a discriminating test, return or defer that decision rather than declare a winner.
 
 ## 14. Eval architecture vertical
 
@@ -892,7 +941,7 @@ Given a verified state `S*`, the benchmark may introduce known perturbations suc
 - reorder procedural steps;
 - add a style-rule violation.
 
-Synthetic gaps provide exact intervention ground truth and systematic ontology coverage. They must be designed carefully enough to avoid artificial shortcuts.
+A controlled perturbation identifies the intervention performed, not every true defect or every acceptable repair. The source state may contain latent problems, one edit may create several effects, and a detector may report valid unseeded findings. Verify the intended effect and collateral changes independently; preserve uncertainty about unadjudicated findings. Include unchanged controls and alternative valid repairs, and test for generator-specific shortcuts. These requirements do not authorize corpus construction or the held model-training-data program.
 
 ## 15. Evaluation metrics under review
 
@@ -963,6 +1012,14 @@ End-to-end agent benchmarks should also measure:
 Benchmark reports should include uncertainty where sample sizes and task structure allow it. Paired comparisons on the same instances are generally more informative than comparing two isolated aggregate means.
 
 Important slices should be reported separately rather than hidden by a global average.
+
+### 15.11 Measurement admission rules
+
+The formulas above are candidates, not self-sufficient metric specifications. Before use, define the unit of analysis, matching/adjudication policy, overlapping-defect treatment, denominator, zero-denominator behavior, and treatment of abstentions, missing labels, infrastructure failures, and retries. An unadjudicated finding is not automatically a false positive. Recall is only reportable against an adequately adjudicated inventory for a declared scope, not an unknowable set of all editorial problems.
+
+Report abstention/coverage alongside conditional accuracy or closure, and retain failed attempts rather than improving the score by dropping them. Correlated revisions from one artifact are not independent samples. Predeclare the comparison, sampling/uncertainty method, stopping rule, and smallest decision-relevant difference; this contract does not invent a universal sample size.
+
+Use no-edit and simple deterministic/checklist controls where applicable. Compare usefulness with independent reader/developer task evidence, not only agreement with the author's preferred patch. No-op preservation, valid alternatives, unnecessary edits, and rare severe false releases must remain visible. No model/provider experiment, participant study, or dataset work is released merely by listing these requirements. (`SRC-117`, `SRC-119`.)
 
 ## 16. Benchmark quality criteria
 
@@ -1254,6 +1311,14 @@ If agents inspect arbitrary documents or external sources, document content itse
 
 Benchmark fixtures, tool dependencies, containers, external sources, and model endpoints may affect results and security. Provenance and integrity checks should be part of the design where material.
 
+### 22.7 Authority, safe projections, and erasure scope
+
+Separate permission to read, retrieve, propose, apply, accept, publish, export, disclose to a provider, delete, and change retention. A document, prior bundle, imported event, or model response cannot grant those permissions. Validate resource scope and current authority outside the model before a consequential action; cached approval does not authorize a changed payload or revision.
+
+Lossless retention of hostile syntax is not permission to execute it. Keep preserved source distinct from sanitized rendering and from sandboxed execution. Test active HTML/Markdown, imported configuration, external links, and tool outputs at the actual trust boundary. Quote matching or an opaque JSON round trip cannot demonstrate injection resistance. Evidence retention must not leak secrets or restricted source into public CI logs, artifacts, or this repository. (`SRC-092`.)
+
+For erasure, inventory authoritative payloads and derived copies, indexes, logs, caches, replicas, backups, and exports. Distinguish logical hiding, access revocation, redaction, cryptographic inaccessibility, and verified deletion. A tombstone or content hash may itself retain sensitive information. State which copies are controlled, which are not, the permitted audit residue, and the resulting replay limits. Neither a tombstone nor absence from one database file establishes complete erasure or legal compliance. No jurisdiction-specific legal conclusion or proprietary-guide license is granted here. (`SRC-116`.)
+
 ## 23. Logical module boundaries under review
 
 No repository directories or packages are authorized by this section. These are conceptual boundaries only.
@@ -1443,13 +1508,19 @@ The review phase should not merely produce comments. Each material architecture 
 6. migration/exit path if the decision is wrong;
 7. explicit acceptance criteria;
 8. unresolved objections;
-9. recommendation: accept / narrow / defer / reject / research further.
+9. obligation-level verdict and overall recommendation using only `PASS`, `NARROW`, `RETURN-WITH-FINDINGS`, `DEFER`, or `REJECT`, with the required next evidence and authorized decision-maker named.
 
 Storage decisions should be based on representative workload experiments rather than feature-table aesthetics where feasible.
 
 Ontology decisions should be tested against examples from more than one editorial vertical before claiming generality.
 
 Eval decisions should be tested against both real historical cases and controlled synthetic cases before claiming benchmark validity.
+
+Separate argument, schema/fixture consistency, runtime behavior, comparative benefit, and product usefulness. A result passes only the obligation it actually tests. No gate passes on an empty obligation inventory, missing material coverage, unregistered post-hoc fixtures, or same-session self-validation presented as independent review.
+
+Apply the explicit aggregation policy in `RESEARCH.md` section 26.1; verdict names are not an ordinal scientific scale. Historical packets remain frozen, including retired verdict strings. New results use the current vocabulary and explain any reclassification without rewriting earlier output.
+
+The review's [coverage and decision-routing matrix](research/packets/2026-09-05-bootstrap-contract-review/COVERAGE.md) is an audit artifact, not a competing task tracker. Execution ownership and status remain in Beads.
 
 ## 27. Review exit criteria
 
@@ -1472,6 +1543,14 @@ At minimum, the implementation release should have:
 - explicit owner authorization to leave `ADVERSARIAL-REVIEW-REQUIRED`.
 
 The review is allowed to simplify the architecture substantially. Deleting unnecessary machinery is a successful review outcome.
+
+### 27.1 Release receipt and circular-gate guard
+
+Bootstrap exit requires an explicit owner receipt naming the reviewed commit, released vertical/use case, accepted decisions, remaining holds, and accepted residual risks. A PR merge, green CI run, closed administrative task, or partially passed research packet is not that receipt.
+
+A persistence decision **process** may satisfy the scoped exit criterion without a pre-existing accepted ADR; section 24 still prohibits creating ADR files merely to complete the queue. Before production persistence implementation, the owner must separately authorize the relevant decision/ADR and work scope. This removes any inference that an ADR must both predate and await the same gate.
+
+The first slice remains the paired Amnesia-reference and accepted About-prose research proof, not evidence of cross-industry generality. Doc Doctor mapping remains under `DD-G1`, downstream of the paired synthesis; its application choices cannot define the core by inheritance. Research-only code/fixtures remain distinct from product implementation. External-provider disclosure and model-training dataset work retain their separate authorization gates.
 
 ## 28. Bootstrap constraints
 
@@ -1598,3 +1677,52 @@ The current direction favors multidimensional observations over a canonical scal
 
 Editorial gaps are currently the most important candidate intermediate representation.
 
+
+
+### 32.5 Formulations superseded by the 2026-09-05 review proposal
+
+Basis: `BOOTSTRAP-REVIEW-2` authorizes review and a PR, not acceptance of these amendments. The replacement wording is proposed for external revision. Each passage below is preserved verbatim from commit `360d6ed15fbee7d38dc659f8324763bf637b3924`.
+
+#### Scope provenance before the 2026-09-05 review
+
+Provenance of the directions above, per [`research/decisions/DECISION-LOG.md`](research/decisions/DECISION-LOG.md): `D-02R`, `AMN-01`, and `D-01P` carry the owner's verbatim statements; `D-01` and `D-04` are paraphrased and await confirmation; the `D-03` acceptance preserves no owner statement and is a recorded research direction, not an accepted decision, until confirmed. The text this block superseded is preserved verbatim in section 32.
+
+#### Section 3 heading
+
+```markdown
+## 3. Accepted research hypothesis
+```
+
+#### Section 5 — Gap
+
+A candidate first-class representation of an unresolved editorial condition. It is broader than a typo and may include epistemic, completeness, structural, usability, style, lifecycle, or release deficiencies.
+
+#### Section 5 — Obligation
+
+A requirement that the artifact is expected to satisfy. The review must decide whether obligations are distinct from gaps. A missing obligation may produce a gap, but the concepts are not obviously identical.
+
+#### Section 5 — Snapshot / checkpoint
+
+A materializable semantic state preserved at a meaningful boundary.
+
+#### Section 8.3 — Release readiness
+
+Release readiness should be represented as a gate over requirements and blockers rather than as `quality == 1`.
+
+A simple conceptual form is:
+
+`ReleaseReady = all(required_conditions_pass) && no(open_release_blockers)`
+
+The release decision must retain the contract, source/evidence state, grader versions, and unresolved non-blocking gaps that informed it.
+
+#### Section 8.4 — Scalar summaries lead
+
+If a scalar is useful for optimization or presentation, it must be derived from interpretable dimensions or gap liabilities and must not erase the underlying vector.
+
+#### Section 14.6 — Synthetic perturbation claim
+
+Synthetic gaps provide exact intervention ground truth and systematic ontology coverage. They must be designed carefully enough to avoid artificial shortcuts.
+
+#### Section 26 — Decision packet verdict vocabulary
+
+9. recommendation: accept / narrow / defer / reject / research further.

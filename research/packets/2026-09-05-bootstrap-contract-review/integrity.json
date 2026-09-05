@@ -1,0 +1,145 @@
+{
+  "adr_queue_count": 52,
+  "base_commit": "360d6ed15fbee7d38dc659f8324763bf637b3924",
+  "behavioral_checks": 67,
+  "behavioral_experiment_sha256": "7cabdb9258aee57354a5e9acf5667fd40213c629863aff7bb771d4e25dc228f0",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "research/tools/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "research/programs/event-state/tools/validate_event_fluent_fixture.py",
+        "research/programs/event-state/fixtures/amnesia-notes-event-fluent.json",
+        "--output",
+        "/mnt/data/review-validation/event-state.final.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "research/programs/prose/tools/validate_portfolio_prose_fixture.py",
+        "research/programs/prose/fixtures/portfolio-about-event-fluent.json",
+        "--output",
+        "/mnt/data/review-validation/prose.final.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "research/programs/paired-synthesis/tools/validate_paired_domain.py",
+        "research/programs/paired-synthesis/fixtures/paired-domain-proof.json",
+        "/mnt/data/review-validation/event-state.final.json",
+        "/mnt/data/review-validation/prose.final.json",
+        "--output",
+        "/mnt/data/review-validation/paired.final.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "research/packets/2026-09-04-phase-3-behavioral-probes/tools/run_experiments.py",
+        "--output",
+        "/mnt/data/review-validation/behavioral.final.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "research/tools/verify_migration.py",
+        "research/packets/2026-09-04-phase-3-behavioral-probes/results/behavioral-probes.json",
+        "/mnt/data/review-validation/behavioral.final.json",
+        "research/packets/2026-09-04-restructure-program-major/move-map.json"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "bd prime"
+      ],
+      "exit_code": 127,
+      "expected_exit_code": 127
+    },
+    {
+      "command": [
+        "python3",
+        "research/tools/render_registry.py",
+        "--check"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "command": [
+        "python3",
+        "research/tools/check_links.py",
+        "."
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0
+    }
+  ],
+  "fixture_comparisons": {
+    "event-state.final.json": {
+      "byte_equal": true,
+      "equals_committed_path": "research/programs/event-state/results/amnesia-notes-event-fluent-validation.json",
+      "sha256": "21c0e7e86f0fefca8c17aa59ac11f83f79241ed589bda43697130b839433f67f"
+    },
+    "paired.final.json": {
+      "byte_equal": true,
+      "equals_committed_path": "research/programs/paired-synthesis/results/paired-domain-validation.json",
+      "sha256": "d1371750320a27c07d6ae29e6c685b72a49e2240ac279340832c7bdc7270974b"
+    },
+    "prose.final.json": {
+      "byte_equal": true,
+      "equals_committed_path": "research/programs/prose/results/portfolio-about-event-fluent-validation.json",
+      "sha256": "7ecd4f181e78413017fe7653648c083ae9c06d88c8c4e6c6c646e82c9a24475d"
+    }
+  },
+  "generated_registry_unchanged": true,
+  "native_registry_local": "blocked: bd executable absent; fresh PR CI required",
+  "native_tracker_mutated": false,
+  "preexisting_changed_files": [
+    "BOOTSTRAP.md",
+    "RESEARCH.md",
+    "research/README.md",
+    "research/decisions/DECISION-LOG.md"
+  ],
+  "question_count": 47,
+  "research_gate_released": false,
+  "retained_original_nonempty_lines": true,
+  "review_type": "static adversarial contract review plus tooling reproduction",
+  "sha256": {
+    "BOOTSTRAP.md": "b68e514e3e29108f058f895b84b0e4b4c10314e2eeb3a042acc79ab9ae3f948c",
+    "RESEARCH.md": "b41d7d824a2b70504484b921a92759e883d773d7b252d188e8727d26b8d7d9ef",
+    "research/README.md": "3e05a77bf58b355d2df7105b034267359da517037587cd0827f35217580867ac",
+    "research/decisions/DECISION-LOG.md": "b99fbed64885d388935151281cc85b7dbeef5f03f17bfdf15ebd98a466bf1862",
+    "research/packets/2026-09-05-bootstrap-contract-review/COVERAGE.md": "473cd788f3d00ac8e217cd91c14c43e1bde75f39f22cc3bc0564da1b299bb104",
+    "research/packets/2026-09-05-bootstrap-contract-review/README.md": "45b4830a674bc8004dc3c6641737b5eb538e55497345e5816d06baf5a7f6896d",
+    "research/packets/2026-09-05-bootstrap-contract-review/SOURCE-RECHECKS.md": "a3ee991e1fdbc5f0757d947866ee63d0db64807fd371e602c682cd78f5f80177",
+    "research/packets/2026-09-05-bootstrap-contract-review/VALIDATION.md": "6c34fe8303097793bf8eb0bcc8243a57aba9f63659b51de9e3412e5ffbc99b31",
+    "research/packets/2026-09-05-bootstrap-contract-review/raw-validation.txt": "112f0ef0a9df411b9078aafe9c503fbca2bb7826315a80919060905b5002942e"
+  }
+}

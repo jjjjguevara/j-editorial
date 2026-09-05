@@ -1,0 +1,92 @@
+Review validation: executed tooling checks only; no research gate released.
+Python: 3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]
+SQLite: 3.46.1
+Base source: 360d6ed15fbee7d38dc659f8324763bf637b3924
+
+$ python3 -m unittest discover -s research/tools/tests -v
+test_counts_are_verified (test_integrity.MigrationTests.test_counts_are_verified) ... ok
+test_duplicate_check_ids (test_integrity.MigrationTests.test_duplicate_check_ids) ... ok
+test_empty_checks_cannot_pass (test_integrity.MigrationTests.test_empty_checks_cannot_pass) ... ok
+test_false_check_cannot_hide_behind_summary (test_integrity.MigrationTests.test_false_check_cannot_hide_behind_summary) ... ok
+test_input_collision_after_mapping (test_integrity.MigrationTests.test_input_collision_after_mapping) ... ok
+test_new_section_is_not_ignored (test_integrity.MigrationTests.test_new_section_is_not_ignored) ... ok
+test_non_injective_move_map (test_integrity.MigrationTests.test_non_injective_move_map) ... ok
+test_original_hash_is_authenticated (test_integrity.MigrationTests.test_original_hash_is_authenticated) ... ok
+test_output_cannot_replace_evidence (test_integrity.MigrationTests.test_output_cannot_replace_evidence) ... ok
+test_path_only_migration (test_integrity.MigrationTests.test_path_only_migration) ... ok
+test_rerun_hash_is_authenticated (test_integrity.MigrationTests.test_rerun_hash_is_authenticated) ... ok
+test_semantic_limits_must_survive (test_integrity.MigrationTests.test_semantic_limits_must_survive) ... ok
+test_truthy_non_boolean_is_not_a_pass (test_integrity.MigrationTests.test_truthy_non_boolean_is_not_a_pass) ... ok
+test_undeclared_section_change (test_integrity.MigrationTests.test_undeclared_section_change) ... ok
+test_bd_reads_selected_document_repository (test_integrity.RegistryTests.test_bd_reads_selected_document_repository) ... ok
+test_check_never_writes_and_uses_document_root (test_integrity.RegistryTests.test_check_never_writes_and_uses_document_root) ... ok
+test_duplicate_gate (test_integrity.RegistryTests.test_duplicate_gate) ... ok
+test_duplicate_markers_rejected (test_integrity.RegistryTests.test_duplicate_markers_rejected) ... ok
+test_duplicate_program (test_integrity.RegistryTests.test_duplicate_program) ... ok
+test_empty_registry_fails_closed (test_integrity.RegistryTests.test_empty_registry_fails_closed) ... ok
+test_failed_native_read_does_not_overwrite_document (test_integrity.RegistryTests.test_failed_native_read_does_not_overwrite_document) ... ok
+test_gate_metadata_falls_back_to_native_show (test_integrity.RegistryTests.test_gate_metadata_falls_back_to_native_show) ... ok
+test_metadata_path_is_checked (test_integrity.RegistryTests.test_metadata_path_is_checked) ... ok
+test_metadata_rejects_non_object (test_integrity.RegistryTests.test_metadata_rejects_non_object) ... ok
+test_missing_program_is_not_silently_dropped (test_integrity.RegistryTests.test_missing_program_is_not_silently_dropped) ... ok
+test_missing_result_file (test_integrity.RegistryTests.test_missing_result_file) ... ok
+test_reversed_markers_rejected (test_integrity.RegistryTests.test_reversed_markers_rejected) ... ok
+test_valid_registry (test_integrity.RegistryTests.test_valid_registry) ... ok
+test_wrong_gate_owner (test_integrity.RegistryTests.test_wrong_gate_owner) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 0.014s
+
+OK
+exit_code=0
+
+$ python3 research/programs/event-state/tools/validate_event_fluent_fixture.py research/programs/event-state/fixtures/amnesia-notes-event-fluent.json --output /mnt/data/review-validation/event-state.final.json
+
+exit_code=0
+
+$ python3 research/programs/prose/tools/validate_portfolio_prose_fixture.py research/programs/prose/fixtures/portfolio-about-event-fluent.json --output /mnt/data/review-validation/prose.final.json
+
+exit_code=0
+
+$ python3 research/programs/paired-synthesis/tools/validate_paired_domain.py research/programs/paired-synthesis/fixtures/paired-domain-proof.json /mnt/data/review-validation/event-state.final.json /mnt/data/review-validation/prose.final.json --output /mnt/data/review-validation/paired.final.json
+
+exit_code=0
+
+Fixture output byte comparison: {"byte_equal": true, "equals_committed_path": "research/programs/event-state/results/amnesia-notes-event-fluent-validation.json", "sha256": "21c0e7e86f0fefca8c17aa59ac11f83f79241ed589bda43697130b839433f67f"}
+Fixture output byte comparison: {"byte_equal": true, "equals_committed_path": "research/programs/prose/results/portfolio-about-event-fluent-validation.json", "sha256": "7ecd4f181e78413017fe7653648c083ae9c06d88c8c4e6c6c646e82c9a24475d"}
+Fixture output byte comparison: {"byte_equal": true, "equals_committed_path": "research/programs/paired-synthesis/results/paired-domain-validation.json", "sha256": "d1371750320a27c07d6ae29e6c685b72a49e2240ac279340832c7bdc7270974b"}
+$ python3 research/packets/2026-09-04-phase-3-behavioral-probes/tools/run_experiments.py --output /mnt/data/review-validation/behavioral.final.json
+{"status": "pass-with-constraints", "checks_passed": 67, "checks_total": 67, "experiment_sha256": "7cabdb9258aee57354a5e9acf5667fd40213c629863aff7bb771d4e25dc228f0"}
+exit_code=0
+
+Behavioral experiment object and fingerprint equal the committed post-restructure experiment (environment not claimed byte-identical).
+$ python3 research/tools/verify_migration.py research/packets/2026-09-04-phase-3-behavioral-probes/results/behavioral-probes.json /mnt/data/review-validation/behavioral.final.json research/packets/2026-09-04-restructure-program-major/move-map.json
+{
+  "checks_verified_in_each_record": 67,
+  "entire_experiment_equivalent_up_to_input_paths": true,
+  "original_experiment_sha256": "323ad6f84a3fde8175e2ed99d8754cd45357d3c7841d4f4c67af210e2c8c05aa",
+  "rerun_digest_with_original_input_keys": "323ad6f84a3fde8175e2ed99d8754cd45357d3c7841d4f4c67af210e2c8c05aa",
+  "rerun_experiment_sha256": "7cabdb9258aee57354a5e9acf5667fd40213c629863aff7bb771d4e25dc228f0",
+  "research_gate_released": false,
+  "semantic_envelope_unchanged": true,
+  "tooling_integrity": "verified"
+}
+exit_code=0
+
+$ bash -c bd prime
+bash: line 1: bd: command not found
+exit_code=127
+
+$ python3 research/tools/render_registry.py --check
+registry unavailable or invalid: [Errno 2] No such file or directory: 'bd'
+exit_code=2
+
+
+Integrity: all 47 exact questions and 52 exact queue items appear once in COVERAGE.md.
+Integrity: every nonempty original BOOTSTRAP/RESEARCH line is retained, including superseded passages.
+Integrity: generated registry is byte-identical; all referenced native gates are open in the verified base snapshot.
+Integrity: only four pre-existing files changed; frozen packets/tools/fixtures/program charters/results/workflows are unchanged.
+
+$ python3 research/tools/check_links.py .
+checked 230 relative links in /mnt/data/j-editorial
+exit_code=0
