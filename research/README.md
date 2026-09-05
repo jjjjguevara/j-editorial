@@ -44,6 +44,7 @@ The authoritative registry is the Beads tracker; `RESEARCH.md` section 17 is ren
 | [`2026-09-04-phase-2-foundations`](packets/2026-09-04-phase-2-foundations/README.md) | Phase 2: gates, reproduction instructions, legacy ledger |
 | [`2026-09-04-phase-3-behavioral-probes`](packets/2026-09-04-phase-3-behavioral-probes/README.md) | Phase 3: behavioral probes, cross-program results, runner, contract-alignment record |
 | [`2026-09-04-restructure-program-major`](packets/2026-09-04-restructure-program-major/README.md) | This restructure: file map, link rewrite, ledger consolidation, digest equivalence |
+| [`2026-09-05-bootstrap-contract-review`](packets/2026-09-05-bootstrap-contract-review/README.md) | Independent static contract review; 14 findings, full question/ADR routing, proposed amendments, and retained validation evidence; no gates released |
 
 Packets are frozen. Their documents keep the verdict vocabulary they were written with; the program `RESULTS.md` files restate each gate in the unified vocabulary of `RESEARCH.md` section 3.
 

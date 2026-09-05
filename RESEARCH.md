@@ -12,7 +12,7 @@ It is not the charter for any one research subject. Each program has its own cha
 
 ## Accepted research scope — 2026-09-04
 
-The accepted research directions are recorded once, in the section of the same name in [`BOOTSTRAP.md`](BOOTSTRAP.md), and with the owner's verbatim statements and their provenance in [`research/decisions/DECISION-LOG.md`](research/decisions/DECISION-LOG.md). This charter does not restate them. Note that the `D-03` acceptance preserves no owner statement and is a recorded research direction until confirmed.
+The accepted research directions are recorded once, in the section of the same name in [`BOOTSTRAP.md`](BOOTSTRAP.md), and with the owner's verbatim statements and their provenance in [`research/decisions/DECISION-LOG.md`](research/decisions/DECISION-LOG.md). This charter does not restate them. The merged PR #3 reconciliation recovered prior-acceptance excerpts for D-01, D-03, and D-04 with a transcript-authentication limitation; the controlling scope block preserves that qualification. Research-scope acceptance does not pass an empirical gate.
 
 ## 0. Status and revision history
 
@@ -23,6 +23,7 @@ This file was written as a pre-bootstrap scaffold, revised by the Phase 3 alignm
 | Initial | Pre-bootstrap scaffold: method, evidence taxonomy, lifecycle, program contract, single-program registry | pre-bootstrap authoring |
 | 2026-09-04, Phase 3 | Status line, accepted-scope block, section 0 lead sentence, and section 17 registry table rewritten by an alignment script committed from CI | `PR-2-MERGE` statement; automated authorship now prohibited by section 21 |
 | 2026-09-04, restructure | Program-major layout; section 17 generated from Beads; section 18 updated; sections 21 to 28 added; accepted-scope block replaced by a pointer; every section 1 to 20 otherwise retained | `RESTRUCTURE-1` (verbatim in the decision log) |
+| 2026-09-05, contract review | Scope provenance qualification and section 26.1 explicit gate aggregation; previous scope sentence preserved in section 29 | `BOOTSTRAP-REVIEW-2`; proposed for external revision, no gate released |
 
 When bootstrap work executes, it is expected to revise the **scope, structure, terminology, authority relationships, research-program decomposition, gates, and deliverables** of this file and every program charter. That revision is part of bootstrap work, and a detailed charter is not accepted merely because it exists.
 
@@ -643,6 +644,18 @@ The Phase 3 fragment manifest, which commits fragment text beside its SHA-256, i
 
 A gate is decomposed into obligations. Each obligation receives exactly one verdict from section 3: `PASS`, `NARROW`, `RETURN-WITH-FINDINGS`, `DEFER`, or `REJECT`. `PASS` may carry a bounded scope in parentheses, such as "PASS (bounded to literal text matching)", but never a constraint that would change the verdict. A gate as a whole is `PASS` only when every obligation is `PASS`; otherwise it reports the lowest verdict present and lists the returned obligations. `pass-with-constraints` and similar compounds are retired. Verdicts are recorded in `RESULTS.md` using [`research/templates/RESULTS-ENTRY.md`](research/templates/RESULTS-ENTRY.md) and mirrored to the gate task in Beads when it closes.
 
+### 26.1 Explicit aggregation and admission policy
+
+This is a proposed method correction under `BOOTSTRAP-REVIEW-2`, for external revision. It defines the previously unspecified "lowest verdict" in section 26 as a gate-disposition policy, not an ordering of scientific certainty:
+
+1. A missing/unapproved obligation inventory, a missing required verdict, invalid evidence admission, or uncovered required case yields `RETURN-WITH-FINDINGS`; missing evidence cannot disappear from the denominator.
+2. Otherwise, a `REJECT` on a required obligation yields `REJECT` for the candidate under that gate's declared scope. Otherwise use `RETURN-WITH-FINDINGS` if present, then `DEFER` if present, then `NARROW` if present. Preserve every individual verdict and reason.
+3. `PASS` requires a nonempty, approved required-obligation inventory and `PASS` on every required obligation, including coverage, pre-registration, independence, and red-team requirements. An explicitly authorized not-applicable disposition changes the scoped inventory with a recorded reason; it is not an automatic pass.
+
+A missing or inadmissible result is not a falsification result. `DEFER` does not satisfy a required obligation, and `NARROW` does not release the original broader scope. Any release under a smaller scope requires explicit owner approval and a newly identified gate scope. A trivial round trip can pass a narrowly named serialization check but cannot pass a semantic or behavioral obligation by relabeling it.
+
+Static contract review and repeated tooling checks must identify themselves as such. Neither is a new empirical fixture/validator experiment or an independent validation of amendments authored in the same session. A green CI job does not override the result decomposition or owner gate.
+
 ## 27. Coverage matrices
 
 A program or synthesis that is accountable for a set of contract cases maintains a coverage matrix from [`research/templates/COVERAGE.md`](research/templates/COVERAGE.md) mapping each case to the fixture transactions, validator checks, or executed probes that exercise it, with a strength column. Rows marked `none` or `trivial` block `PASS` for any gate that depends on them. The paired proof's matrix is [`research/programs/paired-synthesis/COVERAGE.md`](research/programs/paired-synthesis/COVERAGE.md).
@@ -650,3 +663,12 @@ A program or synthesis that is accountable for a set of contract cases maintains
 ## 28. Packets
 
 A packet under `research/packets/<date>-<name>/` is the frozen record of one execution run: its README, gate statements, reproduction instructions, cross-program results, runners, and the ledger additions it made. Once merged, a packet changes only by link maintenance and superseded banners; its verdict text is never edited. Program `RESULTS.md` files restate packet verdicts in the section 26 vocabulary and hold any reclassification. A new execution run creates a new packet and appends entries to the affected programs' results; it never creates a new phase directory.
+
+
+## 29. Superseded formulations
+
+### 2026-09-05 scope-provenance paragraph
+
+Basis: proposed record correction under `BOOTSTRAP-REVIEW-2`, using the merged PR #3 receipt without upgrading the recovered transcript provenance. Preserved verbatim from `360d6ed15fbee7d38dc659f8324763bf637b3924`:
+
+The accepted research directions are recorded once, in the section of the same name in [`BOOTSTRAP.md`](BOOTSTRAP.md), and with the owner's verbatim statements and their provenance in [`research/decisions/DECISION-LOG.md`](research/decisions/DECISION-LOG.md). This charter does not restate them. Note that the `D-03` acceptance preserves no owner statement and is a recorded research direction until confirmed.
