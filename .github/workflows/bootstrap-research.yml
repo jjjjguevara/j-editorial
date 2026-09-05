@@ -52,6 +52,11 @@ jobs:
           # Tracked source only: no .git directory, runner credentials, or local DB.
           git archive --format=tar HEAD | gzip -n > "$d/checked-source.tar.gz"
           (cd "$d" && sha256sum checked-source.tar.gz > checked-source.sha256)
+      - name: Test research tooling failure paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s research/tools/tests -v 2>&1 | tee "$RUNNER_TEMP/research-evidence/tooling-tests.txt"
       - name: Check relative Markdown links
         shell: bash
         run: python3 research/tools/check_links.py .
@@ -86,11 +91,11 @@ jobs:
           set -euo pipefail
           pk=research/packets/2026-09-04-phase-3-behavioral-probes
           migration=research/packets/2026-09-04-restructure-program-major
-          python3 "$migration/tools/verify_digest_equivalence.py" \
+          python3 research/tools/verify_migration.py \
             "$pk/results/behavioral-probes.json" \
             "$RUNNER_TEMP/research-evidence/behavioral-probes.json" \
             "$migration/move-map.json" \
-            "$RUNNER_TEMP/research-evidence/digest-equivalence.json"
+            --output "$RUNNER_TEMP/research-evidence/digest-equivalence.json"
       - name: Retain evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

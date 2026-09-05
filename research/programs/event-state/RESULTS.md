@@ -70,3 +70,7 @@ Semantic guard with mutation audit (`M-*`), four encodings round-tripped and rep
 ## Open gates
 
 `ES-G1` and `ES-G2`, tracked in Beads under epic `j-editorial-t2j`.
+
+## 2026-09-04 — PR #3 provenance reconciliation
+
+The earlier missing-owner-statement finding is supplemented by [recovered conversation context](../../decisions/PR-3-RECONCILIATION.md). Retrieval reports acceptance of the revised D-03 shape for the next research stage. The original transcript was not independently exported or authenticated; the receipt records that limitation. This is an administrative record correction, not an empirical gate verdict. `ES-G1` and `ES-G2` remain open; the earlier experiment limitations are unchanged.

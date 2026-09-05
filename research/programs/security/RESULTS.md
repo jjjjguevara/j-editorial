@@ -16,7 +16,7 @@ Where: [`SECURITY-AUTHORITY-BASELINE.md`](SECURITY-AUTHORITY-BASELINE.md)
 
 ## 2026-09-04 — Phase 3 cross-reference
 
-`T-opaque-inert` round-trips hostile-looking text through JSON with no agent present. Verdict: trivial; it tests nothing about injection resistance, as the packet states.
+`T-opaque-inert` round-trips hostile-looking text through JSON with no agent present. Verdict: RETURN-WITH-FINDINGS. Coverage strength: trivial; it tests nothing about injection resistance, as the packet states. This living restatement uses the five-verdict vocabulary without changing the frozen packet or releasing `SEC-G1`.
 
 ## Open gates
 

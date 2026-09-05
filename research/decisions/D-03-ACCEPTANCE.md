@@ -82,3 +82,7 @@ This decision does not select or authorize:
 ## Stage boundary
 
 This acceptance closes the D-03 conceptual question for entry into Phase 2 foundations. It does not close the later architecture decision. A future representation/history gate must be based on executed workloads and failure tests, not on the attractiveness of the event-stream analogy.
+
+## PR #3 provenance recovery
+
+The [reconciliation receipt](PR-3-RECONCILIATION.md#d-03--source-turn-2026-09-04t085312z) preserves the acceptance wording supplied by conversation retrieval for the owner turn at `2026-09-04T08:53:12Z`, together with its provenance limitation. This repairs the omitted conversation context; it does not claim an independently archived original transcript or widen any authority listed above.
