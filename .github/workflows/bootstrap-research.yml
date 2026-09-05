@@ -1,0 +1,106 @@
+name: Research reproduction
+
+# Read-only quality gate for the research tree. It verifies that committed
+# fixture results reproduce from their validators, that the Phase 3 behavioral
+# runner reproduces its recorded experiment digest, and that no relative
+# Markdown link dangles. It never writes to the repository.
+
+on:
+  push:
+    paths:
+      - 'research/**'
+      - 'BOOTSTRAP.md'
+      - 'RESEARCH.md'
+      - 'ROADMAP.md'
+      - '.github/workflows/bootstrap-research.yml'
+  pull_request:
+    paths:
+      - 'research/**'
+      - 'BOOTSTRAP.md'
+      - 'RESEARCH.md'
+      - 'ROADMAP.md'
+      - '.github/workflows/bootstrap-research.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: research-reproduction-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Record environment and checked source
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="$RUNNER_TEMP/research-evidence"
+          mkdir -p "$d"
+          {
+            git rev-parse HEAD
+            python3 --version
+            git --version
+            python3 -c 'import sqlite3; print("sqlite", sqlite3.sqlite_version)'
+          } > "$d/environment.txt"
+          # Tracked source only: no .git directory, runner credentials, or local DB.
+          git archive --format=tar HEAD | gzip -n > "$d/checked-source.tar.gz"
+          (cd "$d" && sha256sum checked-source.tar.gz > checked-source.sha256)
+      - name: Test research tooling failure paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s research/tools/tests -v 2>&1 | tee "$RUNNER_TEMP/research-evidence/tooling-tests.txt"
+      - name: Check relative Markdown links
+        shell: bash
+        run: python3 research/tools/check_links.py .
+      - name: Reproduce committed fixture validations
+        shell: bash
+        run: |
+          set -euo pipefail
+          d="$RUNNER_TEMP/research-evidence"
+          p=research/programs
+          python3 "$p/event-state/tools/validate_event_fluent_fixture.py" "$p/event-state/fixtures/amnesia-notes-event-fluent.json" --output "$d/amnesia-notes-event-fluent-validation.json"
+          python3 "$p/prose/tools/validate_portfolio_prose_fixture.py" "$p/prose/fixtures/portfolio-about-event-fluent.json" --output "$d/portfolio-about-event-fluent-validation.json"
+          python3 "$p/paired-synthesis/tools/validate_paired_domain.py" "$p/paired-synthesis/fixtures/paired-domain-proof.json" "$d/amnesia-notes-event-fluent-validation.json" "$d/portfolio-about-event-fluent-validation.json" --output "$d/paired-domain-validation.json"
+          cmp "$p/event-state/results/amnesia-notes-event-fluent-validation.json" "$d/amnesia-notes-event-fluent-validation.json"
+          cmp "$p/prose/results/portfolio-about-event-fluent-validation.json" "$d/portfolio-about-event-fluent-validation.json"
+          cmp "$p/paired-synthesis/results/paired-domain-validation.json" "$d/paired-domain-validation.json"
+      - name: Reproduce the Phase 3 behavioral runner digest
+        shell: bash
+        run: |
+          set -euo pipefail
+          pk=research/packets/2026-09-04-phase-3-behavioral-probes
+          python3 "$pk/tools/run_experiments.py" --output "$RUNNER_TEMP/research-evidence/behavioral-probes.json"
+          python3 - "$pk/results/behavioral-probes.post-restructure.json" "$RUNNER_TEMP/research-evidence/behavioral-probes.json" <<'PY'
+          import json, sys
+          committed, fresh = (json.load(open(p)) for p in sys.argv[1:3])
+          assert fresh["checks_passed"] == fresh["checks_total"] == committed["checks_total"], "check count changed"
+          assert fresh["experiment_sha256"] == committed["experiment_sha256"], "experiment digest changed"
+          print("digest reproduced:", fresh["experiment_sha256"])
+          PY
+      - name: Verify equivalence with the pre-restructure experiment
+        shell: bash
+        run: |
+          set -euo pipefail
+          pk=research/packets/2026-09-04-phase-3-behavioral-probes
+          migration=research/packets/2026-09-04-restructure-program-major
+          python3 research/tools/verify_migration.py \
+            "$pk/results/behavioral-probes.json" \
+            "$RUNNER_TEMP/research-evidence/behavioral-probes.json" \
+            "$migration/move-map.json" \
+            --output "$RUNNER_TEMP/research-evidence/digest-equivalence.json"
+      - name: Retain evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: research-reproduction-${{ github.sha }}
+          path: ${{ runner.temp }}/research-evidence/
+          retention-days: 3
+          if-no-files-found: error

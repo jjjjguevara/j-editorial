@@ -4,3 +4,8 @@
 *.db
 .beads-credential-key
 .beads/proxieddb/
+
+# Local tool state and OS files (added 2026-09-04 during research restructure)
+.delta/
+.DS_Store
+__pycache__/

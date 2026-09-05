@@ -1,0 +1,10 @@
+{
+  "purpose": "one-time allowlisted publication of authorized research results and controlling-document alignment",
+  "owner_basis": "Ok, you can merge and continue with the next phase. Continue executing the contract.",
+  "branch": "research/bootstrap-phase-3-representation-evaluation",
+  "runner_blob": "4ee5855c7b500c4941265cb007e59091e86998e4",
+  "alignment_blob": "2fb49a1942ed3644c9570fb8c712298dd37f2da6",
+  "experiment_sha256": "323ad6f84a3fde8175e2ed99d8754cd45357d3c7841d4f4c67af210e2c8c05aa",
+  "allowed_generated_paths": ["BOOTSTRAP.md", "ROADMAP.md", "RESEARCH.md", "research/model-training-data/CHARTER.md", "research/phase-3/results/contract-alignment.json", "research/phase-3/results/behavioral-probes.json"],
+  "excluded": ["production implementation", "dataset research", "source-repository edits", "deployment", "Beads database mutation", "PR merge"]
+}

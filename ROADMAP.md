@@ -21,6 +21,12 @@ It does **not** answer:
 
 ---
 
+## Accepted research scope — 2026-09-04
+
+The accepted research directions are recorded once, in the section of the same name in [`BOOTSTRAP.md`](BOOTSTRAP.md) and, with the owner's verbatim statements and their provenance, in [`research/decisions/DECISION-LOG.md`](research/decisions/DECISION-LOG.md). This roadmap does not restate them. The copy that stood here between the Phase 3 alignment and the 2026-09-04 restructure was identical to the `BOOTSTRAP.md` block.
+
+---
+
 ## 0. Roadmap contract
 
 ### 0.1 This is a capability roadmap, not a release calendar
@@ -216,7 +222,15 @@ These principles describe the current intended progression. They remain subordin
 
 An Obsidian sidebar, web editor, CI check, API endpoint, or dashboard should project shared semantics rather than silently inventing its own incompatible editorial model.
 
-### 3.2 Doc Doctor should prove the framework, not define it
+### 3.2 Paired research proof precedes Doc Doctor integration
+
+The first research proof co-gates the bounded Amnesia API reference and portfolio
+About page. Success on one cannot stand in for the other. Source parity and prose
+adjudication retain different methods. Phase 2's paired representation result is
+not an empirical model-quality, reader-success, or production-generalization result.
+Doc Doctor remains the intended first downstream reference integration.
+
+#### Doc Doctor should prove the framework, not define it
 
 If a concept only makes sense inside Obsidian, that is evidence that it belongs in Doc Doctor rather than the canonical framework.
 
@@ -2530,6 +2544,9 @@ A lightweight revision table may be maintained here once changes begin:
 | Revision | Change | Evidence / decision | Affected stages |
 |---|---|---|---|
 | Initial | Establish provisional product progression | Pre-bootstrap product analysis | All |
+| 2026-09-04, phases 1–2 | The paired Amnesia API-reference and portfolio About-page proof became the first product proof; Doc Doctor remains the first downstream reference integration but has received no fixture evidence | `D-01` (paraphrased), `D-01P` (verbatim); see the decision log | Bootstrap, Stage 0, Stage 2 |
+| 2026-09-04, phase 3 | Section 3.2 retitled "Paired research proof precedes Doc Doctor integration"; an "Accepted research scope" block was inserted by an alignment script committed from CI | `PR-2-MERGE` statement; automated authorship, now prohibited by `BOOTSTRAP.md` section 30 | Section 3 |
+| 2026-09-04, restructure | Accepted-scope block consolidated into `BOOTSTRAP.md` and the decision log; this table populated; research tree reorganized by program | `RESTRUCTURE-1` (verbatim) | None; documentation only |
 
 No heavy change process is required until the cost of roadmap drift justifies it.
 

@@ -1,0 +1,61 @@
+{
+  "purpose": "bounded architecture experiment; not a corpus",
+  "training_eligibility": "prohibited",
+  "projection": "literal source fragment, not built HTML or normalized DOM",
+  "position_unit": "Unicode codepoint; fragment-relative unless source_ prefix",
+  "captures": "connector UTF-8 content reconstituted locally and matched against Git blob SHA-1; full-source bytes not committed",
+  "fragments": [
+    {
+      "id": "about-p0",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "f66fa3d1b6c7b03ece46eb2f20d9089a51f02e2a",
+      "path": "src/pages/about.astro",
+      "git_blob": "e11905e3db4591301c9bb17bed5a50490ba5bffb",
+      "source_sha256": "00084507d75dbd10246f47ee937ac46cc78f92e31c56b09e81f99f3a2ddc8489",
+      "source_bytes": 3430,
+      "source_start_codepoint": 815,
+      "source_end_codepoint": 1523,
+      "fragment_sha256": "740346928da8215f53d1d93102d5734f943f9c9706f9f2a332375fdfd65886a8",
+      "text": "<section class=\"case-section\"><header><p class=\"section-index\">Biography</p><h2>Across text and systems</h2></header><div class=\"prose\"><p>I began professionally in content and editorial work, then moved deeper into technical organizations: developer and engineering documentation, governance, information architecture, implementation support, and software systems. The through-line is practical work with complex technical material and the structures around it.</p><p>My earlier academic background is a Licenciatura in Mexican Literature from Universidad Autónoma de Nuevo León. Current Harvard Extension study is in Data Science and AI, alongside mathematics and computer-science work.</p></div></section>"
+    },
+    {
+      "id": "about-p1",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "900483708d74e83c5f4acd3b308127f7fa430117",
+      "path": "src/pages/about.astro",
+      "git_blob": "5d3d5007a6d2af82d8526e5862e87ec9dd239b26",
+      "source_sha256": "549bd3466e3d60898e4a247a6c1c0c4de9de660f5947875379fef2a9c8f1ab0c",
+      "source_bytes": 3418,
+      "source_start_codepoint": 832,
+      "source_end_codepoint": 1531,
+      "fragment_sha256": "b2931426607154d086ffbd67b26460e2f35802e6764d10c66c9b3eb4e8b577a2",
+      "text": "<section class=\"case-section\"><header><p class=\"section-index\">Biography</p><h2>Across text and systems</h2></header><div class=\"prose\"><p>I began professionally in content strategy and process engineering at Infosys BPM, followed by engineering documentation at Mighty Buildings and governance and AI-integration work at Lumston. Private consulting and current project work include documentation systems, developer tooling, technical research, and software.</p><p>My earlier academic background is a Licenciatura in Mexican Literature from Universidad Autónoma de Nuevo León. Current Harvard Extension study is in Data Science and AI, alongside mathematics and computer science.</p></div></section>"
+    },
+    {
+      "id": "about-p2",
+      "repo": "jjjjguevara/sci-jjjjguevara",
+      "commit": "1c93b60e75ce60203295a988b8125d44e6acb6bc",
+      "path": "src/pages/about.astro",
+      "git_blob": "d56c560fc63569b471cc4e81a65daf52568fe754",
+      "source_sha256": "833785f867d59ab04a31f12b64cffecb06fd8ceea445f9cb3d5f0672fbb162b0",
+      "source_bytes": 3272,
+      "source_start_codepoint": 804,
+      "source_end_codepoint": 1465,
+      "fragment_sha256": "2eba829474897726e7382e2089a35df771e7f3a20b7b2d6f0eaac75661944507",
+      "text": "<section class=\"case-section\"><header><h2>Across text and systems</h2></header><div class=\"prose\"><p>I began professionally in content strategy and process engineering at Infosys BPM, followed by engineering documentation at Mighty Buildings and governance and AI-integration work at Lumston. Private consulting and current project work include documentation systems, developer tooling, technical research, and software.</p><p>My earlier academic background is a Licenciatura in Mexican Literature from Universidad Autónoma de Nuevo León. Current Harvard Extension study is in Data Science and AI, alongside mathematics and computer science.</p></div></section>"
+    },
+    {
+      "id": "notes-d0",
+      "repo": "jjjjguevara/amnesia-docs",
+      "commit": "5d8aa677793cc2b4734106bb21e6118f0cc5a2aa",
+      "path": "src/content/docs/api/reference/commands-notes.md",
+      "git_blob": "1cda5daf0f96cde966d18b4e9da640d1a27ca084",
+      "source_sha256": "32f908a717ce8ba880dbdbca43da4e869d57980ca8fdd41acb876b2a505367e9",
+      "source_bytes": 3015,
+      "source_start_codepoint": 679,
+      "source_end_codepoint": 1628,
+      "fragment_sha256": "e37b4c76f3f3b1eb89a119aebff2fcaf5296e6d05265e09645fec5e2ad719f60",
+      "text": "## Methods\n\n| Method | Purpose | Capability |\n| --- | --- | --- |\n| `create(note)` | Create a note; resolves to the created `Note`. | `write-annotations` |\n| `update(note)` | Update an existing note; resolves to the updated `Note`. | `write-annotations` |\n| `delete(id)` | Delete a note by id. | `write-annotations` |\n| `getNotes()` | List notes; resolves to `Note[]`. | `read-state` |\n| `getNote(id)` | Fetch a single note by id, or `null` if absent. | `read-state` |\n| `getNoteForHighlight(highlightId)` | Get the note attached to a highlight, or `null`. | `read-state` |\n| `searchNotes(query)` | Text-search notes; resolves to `Note[]`. | `read-state` |\n| `exportNotes(options)` | Export notes (for example to Markdown); resolves to the exported payload. | `read-state` |\n\nMethod names are exact. Parameter and return payloads use the `Note` and related annotation types from\nthe API type definitions; consult those types for field-level detail.\n"
+    }
+  ]
+}

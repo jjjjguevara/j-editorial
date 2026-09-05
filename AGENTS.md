@@ -47,6 +47,22 @@ cp -rf source dest          # NOT: cp -r source dest
 - `apt-get` - use `-y` flag
 - `brew` - use `HOMEBREW_NO_AUTO_UPDATE=1` env var
 
+## Research layout and quality gates
+
+This repository is pre-implementation. `BOOTSTRAP.md` is the controlling contract; `RESEARCH.md` is the research method; start at `research/README.md` for the program-major layout (`research/programs/<slug>/`, frozen `research/packets/`, `research/decisions/`, and the single `research/LEDGER.md`).
+
+Quality gates before any handoff that touches `research/` or the controlling documents:
+
+```bash
+python3 research/tools/check_links.py .
+python3 research/programs/event-state/tools/validate_event_fluent_fixture.py research/programs/event-state/fixtures/amnesia-notes-event-fluent.json
+python3 research/programs/prose/tools/validate_portfolio_prose_fixture.py research/programs/prose/fixtures/portfolio-about-event-fluent.json
+python3 research/packets/2026-09-04-phase-3-behavioral-probes/tools/run_experiments.py --output /tmp/behavioral-probes.json
+python3 research/tools/render_registry.py --check
+```
+
+Method rules that bind new research work are in `RESEARCH.md` sections 21 to 28: pre-registration before fixture authoring, separate sessions for fixture author, validator author, and red team, raw bytes committed beside every digest, agent reading never labeled deterministic, only the five gate verdicts, coverage matrices maintained, controlling documents never edited by automation, owner decisions recorded verbatim. Beads is the program registry; render the `RESEARCH.md` registry after tracker changes.
+
 <!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:970c3bf2 -->
 ## Beads Issue Tracker
 

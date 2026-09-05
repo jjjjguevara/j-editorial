@@ -1,0 +1,18 @@
+{
+  "BOOTSTRAP.md": {
+    "after": "60c2f0b973973b4e0207aa57c8025a8cf9c62a29881e0ce7f4999dbd7e9f49cf",
+    "before": "2d229b87861818f6c4040ce7baf1915fd2bd43c053b979f371510314305dedc2"
+  },
+  "RESEARCH.md": {
+    "after": "fefdd89c3a821c7245a47e3574c5182fea312a4128a27e2954421f9f1491bb5b",
+    "before": "ea7ed1971e56bd9dfce9e3633a3cf577d589d9e407846df26551608534463221"
+  },
+  "ROADMAP.md": {
+    "after": "fe8b3118de44849a1b47f3a979c7c8d5a704b8a5affb328e30bde72134326542",
+    "before": "ded38a1409c81d42052b8f31b6a99c4a36b2f3235764840627bb97f35cfeb701"
+  },
+  "research/model-training-data/CHARTER.md": {
+    "after": "55f5ade747be352cf0702179dcb80d49941b207611d7d766510673a9b86a1bfe",
+    "before": "e4063d9f962029ab02363509d35d9a5c30be29b35a310e9fabec08b50e9f928b"
+  }
+}
