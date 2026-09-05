@@ -1,0 +1,9 @@
+# Normalize all text to LF in the repo. Fixture files are byte-pinned via
+# SHA-256 in research/phase-2/REPRODUCE.md and re-checked by the phase-2
+# validators, so line endings must not vary by machine or local git config.
+* text=auto eol=lf
+*.json text eol=lf
+
+# Binaries: never apply line-ending or text conversion.
+*.png binary
+*.pdf binary
